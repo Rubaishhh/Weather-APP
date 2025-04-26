@@ -1,4 +1,4 @@
-function validateForm() {
+function validate_signup() {
     let username = document.getElementById("username").value.trim();
     let fullname = document.getElementById("fullname").value.trim();
     let email = document.getElementById("email").value.trim();

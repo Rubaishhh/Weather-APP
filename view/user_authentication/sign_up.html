@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form id="signupFor">
+    <form id="signupForm">
     <h2>Sign up</h2>
     <label for="username"> User name :</label>
     <input type="text" id="username" name="username" required><br><br>
@@ -30,7 +30,7 @@
     <input type="date" id="dob" name="dob" required><br><br>
 
     <label for="gender">Gender:</label><br>
-    <input type="radio" id="male" name="gender" value="male">
+    <input type="radio" id="male" name="gender" value="male" required>
     <label for="male">Male</label><br>
     <input type="radio" id="female" name="gender" value="female">
     <label for="female">Female</label><br>
@@ -41,7 +41,7 @@
     <input type="text" id="address" name="address" required><br><br>
     
     <label for="country">Select a country:</label>
-<select id="country">
+<select id="country" name="country">
     <option value="">--Select a Country--</option>
 <option value="USA">United States</option>
 <option value="Canada">Canada</option>
@@ -56,11 +56,11 @@
 <br>
 
 <p>Already have an account? <a href="/login">Login here</a></p>
-<button type="button" id="submit" onclick="validateForm()">Sign up</button>
+<button type="button" id="submit" onclick="validate_signup()">Sign up</button>
 <button type="reset" id="reset">Reset</button>
 <button type="button" id="cancel">Cancel</button><br><br>
 </form>
-<script src="/js/validation.js"></script>
+<script src="/Weather-APP/js/validate_signup.js"></script>
 
 </body>
 </html>

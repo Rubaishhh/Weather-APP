@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to right, #b0dbeb, #0886da);
+    color: white;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#current-weather, #forecast {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#forecastcon {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.for-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    width: 120px;
+    border-radius: 10px;
+    text-align: center;
+}
