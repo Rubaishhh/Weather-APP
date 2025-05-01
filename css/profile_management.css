@@ -1,8 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background:#ccc;
-    margin: 0;
-    padding: 20px;
+    padding: 40px;
   }
 .main_container {
     max-width: 500px;
@@ -60,7 +59,9 @@ body {
     font-weight: normal;
   }
 
-
+h2{
+  
+}
 
   .form_btn {
     margin-top: 20px;
