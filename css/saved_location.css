@@ -1,0 +1,66 @@
+body{
+ font-family: Arial,sans-serif; 
+ background-color:bisque;  
+ padding: 30px;
+}
+.container{
+    max-width: 500px;
+    background-color: aliceblue;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.input_section{
+    display: flex;
+    align-items: center;/*vertivcally item alignment*/
+    gap: 10px; /*button r input er modher space*/
+    margin-bottom: 10px;
+}
+input{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: burlywood;
+    color: black;
+}
+#add_btn{
+    border: 0;
+    background: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;    
+}
+#add_btn img{
+    width: 30px;
+    height: 30px;
+}
+
+button{
+    cursor: pointer;
+}
+ul{
+    list-style: square;
+    padding: 0;
+}
+li{
+    background: rgba(255,255,255,0.2);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+.city-name:hover{
+    color: blueviolet;
+}
+.actions button{
+    margin-left: 5px;
+    background-color: brown;
+    color: black;
+}
+
