@@ -3,31 +3,39 @@ function validate_signup() {
     let fullname = document.getElementById("fullname").value.trim();
     let email = document.getElementById("email").value.trim();
     let password = document.getElementById("password").value.trim();
-    let confirmPassword = document.getElementById("confirmPassword").value.trim();
+    let confirmpassword = document.getElementById("confirmpassword").value.trim();
     let phone = document.getElementById("phone").value.trim();
     let dob = document.getElementById("dob").value;
     //not clear
     let gender = document.querySelector('input[name="gender"]:checked');
     let address = document.getElementById("address").value.trim();
     let country = document.getElementById("country").value;
+    const genderSelected = (gender !== null);
+    
+    
 
-    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
-    let phonePattern = /^[0-9]{10,15}$/;
-
-    if (!username || !fullname || !email || !phone || !dob || !gender || !address || !country || !password || !confirmPassword) {
+    if (!username || !fullname || !email || !phone || !dob || !address || !country || !password || !confirmpassword) {
         alert("All fields are required!");
         return;
     }
 
-    if (!email.match(emailPattern)) {
-        alert("Invalid email format.");
+    if (password !== confirmpassword) {
+        alert("Passwords do not match.");
         return;
     }
-
-    if (!phone.match(phonePattern)) {
-        alert("Phone number should be 10–15 digits.");
+    if (isNaN(phone) || phone.length !== 11) {
+        alert("Phone number should contain only digits.");
         return;
     }
+    if (!genderSelected) {
+        alert("Please select a gender.");
+        return;
+    }
+    if (!email.includes("@") || !email.includes(".") || email.indexOf("@") > email.lastIndexOf(".")) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+    
 
     alert("Form submitted successfully!");
 
