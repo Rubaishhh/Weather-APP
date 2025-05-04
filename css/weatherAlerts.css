@@ -1,0 +1,114 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+      padding: 40px 20px;
+      color: #222;
+    }
+
+    .wrapper {
+      max-width: 850px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      color: #1565c0;
+      margin-bottom: 10px;
+    }
+
+    .subnote {
+      text-align: center;
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    .notify-box {
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .notify-box h3 {
+      color: #856404;
+      margin-bottom: 10px;
+    }
+
+    .notify-box p {
+      color: #5f4b00;
+      margin-bottom: 15px;
+    }
+
+    .notify-toggle {
+      display: inline-block;
+      padding: 10px 18px;
+      background-color: #ffc107;
+      color: #212529;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      opacity: 1;
+    }
+
+    .alert-list {
+      margin-bottom: 30px;
+    }
+
+    .alert-card {
+      padding: 15px 20px;
+      background: #e1f5fe;
+      border-left: 5px solid #0288d1;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .alert-card.heat {
+      background: #ffebee;
+      border-left-color: #d32f2f;
+    }
+
+    .alert-card:hover {
+      background: #b3e5fc;
+    }
+
+    .details-box, .tips-box {
+      margin-top: 25px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border: 1px solid #cfd8dc;
+    }
+
+    .details-box h2, .tips-box h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #1565c0;
+    }
+
+    .details-box p {
+      margin-bottom: 8px;
+    }
+
+    .tips-box ul {
+      margin-left: 20px;
+      list-style-type: disc;
+    }
+
+    .no-alerts {
+      color: #888;
+      text-align: center;
+      padding: 30px;
+    }
+  

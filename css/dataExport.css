@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #e0f7fa;
+    padding: 20px;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  .box {
+    background: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  button {
+    background: #00796b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  button:hover {
+    background: #004d40;
+  }
+  .forecast-item {
+    background: #e0f2f1;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 8px 0;
+  }
+  
