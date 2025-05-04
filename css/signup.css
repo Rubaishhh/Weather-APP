@@ -1,0 +1,112 @@
+body {
+    background: linear-gradient(to right, #ffffff, #89bbdf); /* Gradient background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+form {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: border 0.3s;
+}
+
+input:focus,
+select:focus {
+    border-color: #007BFF;
+    outline:#0056b3;
+}
+
+input[type="radio"] {
+    margin-top: 5px;
+}
+.gender-options{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+.gender-options label {
+    margin: 0;
+    }
+
+button {
+    padding: 10px 20px;
+    margin: 8px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #9bbfe5;
+    color: white;
+    cursor: pointer;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    gap: 15px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button#reset {
+    background-color: #6c757d;
+}
+
+button#reset:hover {
+    background-color: #5a6268;
+}
+
+button#cancel {
+    background-color: #dc3545;
+}
+
+button#cancel:hover {
+    background-color: #bd2130;
+}
+
+p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
