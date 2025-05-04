@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to right, rgb(176, 219, 235), rgb(8, 134, 218));
+    color: rgb(255, 255, 255);
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .card {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    color: rgb(8, 134, 218);
+    border: none;
+    resize: vertical;
+    margin: 15px 0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    background: rgb(255, 255, 255);
+    color: rgb(8, 134, 218);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background: rgb(240, 240, 240);
+  }
+  
+  #snapshot {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+  }
+  

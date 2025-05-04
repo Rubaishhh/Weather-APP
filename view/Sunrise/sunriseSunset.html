@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sun & Moon Tracker</title>
+  <link rel="stylesheet" href="/css/sunriseSunset.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Sun & Moon Tracker</h1>
+
+    <div class="tabs">
+      <button class="tab-btn active" id="day-night-tab">Day/Night</button>
+      <button class="tab-btn" id="golden-hour-tab">Golden Hour</button>
+      <button class="tab-btn" id="moon-phase-tab">Moon Phase</button>
+    </div>
+
+    <div id="day-night" class="tab-content active">
+      <h2>Day/Night Tracker</h2>
+      <div class="time-display">
+        <div class="time-box"><h3>Sunrise</h3><p>6:30 AM</p></div>
+        <div class="time-box"><h3>Sunset</h3><p>6:30 PM</p></div>
+      </div>
+      <div class="progress-container"><div class="progress-bar"></div></div>
+      <p>Currently Daytime</p>
+    </div>
+
+    <div id="golden-hour" class="tab-content">
+      <h2>Golden Hour</h2>
+      <div class="golden-hour-container">
+        <div class="golden-hour">
+          <h3>Morning</h3>
+          <p>Start: 6:00 AM</p>
+          <p>End: 7:00 AM</p>
+        </div>
+        <div class="golden-hour">
+          <h3>Evening</h3>
+          <p>Start: 5:30 PM</p>
+          <p>End: 6:30 PM</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="moon-phase" class="tab-content">
+      <h2>Moon Phase</h2>
+      <div class="moon-container">
+        <div class="moon-phase"></div>
+        <div class="moon-info">
+          <p>Phase: First Quarter</p>
+          <p>Moonrise: 8:00 PM</p>
+          <p>Moonset: 6:00 AM</p>
+          <p>Illumination: 50%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/sunriseSunset.js"></script>
+</body>
+</html>
