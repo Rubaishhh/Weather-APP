@@ -1,62 +1,72 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
+    // Tab switching functionality
+    var usersTabBtn = document.querySelector('.tab-btn[data-tab="users"]');
+    var contentTabBtn = document.querySelector('.tab-btn[data-tab="content"]');
+    var settingsTabBtn = document.querySelector('.tab-btn[data-tab="settings"]');
+    
+    var usersTab = document.getElementById('users');
+    var contentTab = document.getElementById('content');
+    var settingsTab = document.getElementById('settings');
+    
+    usersTabBtn.onclick = function() {
+        usersTabBtn.className = 'tab-btn active';
+        contentTabBtn.className = 'tab-btn';
+        settingsTabBtn.className = 'tab-btn';
+        
+        usersTab.className = 'tab-content active';
+        contentTab.className = 'tab-content';
+        settingsTab.className = 'tab-content';
+    };
+    
+    contentTabBtn.onclick = function() {
+        usersTabBtn.className = 'tab-btn';
+        contentTabBtn.className = 'tab-btn active';
+        settingsTabBtn.className = 'tab-btn';
+        
+        usersTab.className = 'tab-content';
+        contentTab.className = 'tab-content active';
+        settingsTab.className = 'tab-content';
+    };
+    
+    settingsTabBtn.onclick = function() {
+        usersTabBtn.className = 'tab-btn';
+        contentTabBtn.className = 'tab-btn';
+        settingsTabBtn.className = 'tab-btn active';
+        
+        usersTab.className = 'tab-content';
+        contentTab.className = 'tab-content';
+        settingsTab.className = 'tab-content active';
+    };
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const tabId = this.getAttribute('data-tab');
-
-            // Remove active class from all buttons and contents
-            tabBtns.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-
-            // Add active class to clicked button and corresponding content
-            this.classList.add('active');
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
-
-    // Handle form submission for settings
-    document.getElementById('settings-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Settings saved!');
-        // Here you can add code to save settings to your backend
-    });
-
-    // Handle Add User button click
-    const addUserBtn = document.querySelector('#users .btn-primary');
-    addUserBtn.addEventListener('click', function() {
-        alert('Add user form would open here');
-        // Here you can add code to open a modal or navigate to add user page
-    });
-
-    // Handle Edit and Delete buttons
-    document.querySelectorAll('#users .btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const action = this.textContent.trim();
-            if (action === 'Edit') {
-                alert('Edit user form would open here');
-                // Add code to handle edit action
-            } else if (action === 'Delete') {
-                if (confirm('Are you sure you want to delete this user?')) {
-                    alert('User deleted (simulated)');
-                    // Add code to handle delete action
-                }
+    // Settings form submission
+    var settingsForm = document.getElementById('settings-form');
+    if (settingsForm) {
+        settingsForm.onsubmit = function(e) {
+            e.preventDefault();
+            
+            var siteName = document.getElementById('site-name').value;
+            var siteUrl = document.getElementById('site-url').value;
+            var timezone = document.getElementById('timezone').value;
+            
+            if (!siteName || !siteUrl) {
+                alert('Please fill in all required fields');
+                return;
             }
-        });
-    });
-
-    // Handle Approve and Reject buttons in Content Moderation
-    document.querySelectorAll('#content .btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const action = this.textContent.trim();
-            if (action === 'Approve') {
-                alert('Content approved (simulated)');
-                // Add code to handle approve action
-            } else if (action === 'Reject') {
-                alert('Content rejected (simulated)');
-                // Add code to handle reject action
+            
+            if (!siteUrl.startsWith('http://') && !siteUrl.startsWith('https://')) {
+                alert('Please enter a valid URL starting with http:// or https://');
+                return;
             }
-        });
-    });
+            
+            alert('Settings saved successfully! (simulated)');
+        };
+    }
+
+    // Add User button (simulated)
+    var addUserBtn = document.querySelector('#users .btn-primary');
+    if (addUserBtn) {
+        addUserBtn.onclick = function() {
+            alert('Add User functionality would open a form here');
+        };
+    }
 });
