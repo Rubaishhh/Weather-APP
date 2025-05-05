@@ -4,18 +4,18 @@ function renderList() {
   const list = document.getElementById("loc_list");
   list.innerHTML = "";
 
-  for (let index = 0; index < locations.length; index++) {
-    const city = locations[index];
+  for (let i = 0; i < locations.length; i++) {
+    const city = locations[i];
   
     const li = document.createElement("li");
     li.innerHTML = `
-      <span class="city-name" onclick="viewWeather('${city}')">${index + 1}. ${city}</span>
+      <span class="city-name" onclick="viewWeather('${city}')">${i + 1}. ${city}</span>
       <div class="actions">
-        <button onclick="moveUp(${index})">⬆</button>
-        <button onclick="moveDown(${index})">⬇</button>
-        <button onclick="deleteLocation(${index})">❌</button>
+        <button onclick="moveUp(${i})">up</button>
+        <button onclick="moveDown(${i})">down</button>
+        <button onclick="deleteLocation(${i})">cross</button>
       </div>
-    `;
+   `;
     list.appendChild(li);
   }
   
@@ -35,21 +35,21 @@ function addLocation() {
   }
 }
 
-function deleteLocation(index) {
-  locations.splice(index, 1);
+function deleteLocation(i) {
+  locations.splice(i, 1);
   renderList();
 }
 
-function moveUp(index) {
-  if (index > 0) {
-    [locations[index - 1], locations[index]] = [locations[index], locations[index - 1]];
+function moveUp(i) {
+  if (i > 0) {
+    [locations[i - 1], locations[i]] = [locations[i], locations[i - 1]];
     renderList();
   }
 }
 
-function moveDown(index) {
-  if (index < locations.length - 1) {
-    [locations[index + 1], locations[index]] = [locations[index], locations[index + 1]];
+function moveDown(i) {
+  if (i < locations.length - 1) {
+    [locations[i + 1], locations[i]] = [locations[i], locations[i + 1]];
     renderList();
   }
 }

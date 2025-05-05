@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: /Weather-APP/view/user_authentication/login.php?status=unauthorized");
+    exit;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +31,6 @@
           </div>
 
         </div>
-    <!--for current temp and a bit of description about weather(left), an icon, feels like, humidity. wind-->
         <div class="main-weather">
           <div class="temp">
             <h1 id="temperature">--°C</h1>

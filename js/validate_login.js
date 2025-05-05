@@ -1,11 +1,11 @@
-function validate_login() {
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value.trim();
+function validateForm() {
+    var username = document.getElementById("username").value.trim();
+    var password = document.getElementById("password").value.trim();
 
     if (username === "" || password === "") {
-        alert("Please fill in both username/email and password.");
-        return;
+        alert("Both fields are required. Please fill in the username and password.");
+        return false;
     }
-    alert("Login Successful!");
-    window.location.href = "dashboard.html";
+    window.location.href = "/Weather-APP/view/Dashboard/dashboard.php";
+    return false; 
 }
