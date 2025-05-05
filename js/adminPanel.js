@@ -1,62 +1,53 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
+document.addEventListener('DOMContentLoaded', function () {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = [
+      document.getElementById('users'),
+      document.getElementById('content'),
+      document.getElementById('settings')
+    ];
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const tabId = this.getAttribute('data-tab');
-
-            // Remove active class from all buttons and contents
-            tabBtns.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-
-            // Add active class to clicked button and corresponding content
-            this.classList.add('active');
-            document.getElementById(tabId).classList.add('active');
+    tabButtons.forEach(function (btn, index) {
+      btn.onclick = function () {
+        // Deactivate all tabs
+        tabButtons.forEach(function (b) {
+          b.className = 'tab-btn';
         });
+        tabContents.forEach(function (content) {
+          content.className = 'tab-content';
+        });
+
+        // Activate current tab
+        btn.className = 'tab-btn active';
+        tabContents[index].className = 'tab-content active';
+      };
     });
 
-    // Handle form submission for settings
-    document.getElementById('settings-form').addEventListener('submit', function(e) {
+    const settingsForm = document.getElementById('settings-form');
+    if (settingsForm) {
+      settingsForm.onsubmit = function (e) {
         e.preventDefault();
-        alert('Settings saved!');
-        // Here you can add code to save settings to your backend
-    });
+        const siteName = document.getElementById('site-name').value;
+        const siteUrl = document.getElementById('site-url').value;
+        const timezone = document.getElementById('timezone').value;
 
-    // Handle Add User button click
+        if (!siteName || !siteUrl) {
+          alert('Please fill in all required fields');
+          return;
+        }
+
+        if (!siteUrl.startsWith('http://') && !siteUrl.startsWith('https://')) {
+          alert('Please enter a valid URL starting with http:// or https://');
+          return;
+        }
+
+        alert('Settings saved successfully!');
+      };
+    }
+
     const addUserBtn = document.querySelector('#users .btn-primary');
-    addUserBtn.addEventListener('click', function() {
-        alert('Add user form would open here');
-        // Here you can add code to open a modal or navigate to add user page
-    });
-
-    // Handle Edit and Delete buttons
-    document.querySelectorAll('#users .btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const action = this.textContent.trim();
-            if (action === 'Edit') {
-                alert('Edit user form would open here');
-                // Add code to handle edit action
-            } else if (action === 'Delete') {
-                if (confirm('Are you sure you want to delete this user?')) {
-                    alert('User deleted (simulated)');
-                    // Add code to handle delete action
-                }
-            }
-        });
-    });
-
-    // Handle Approve and Reject buttons in Content Moderation
-    document.querySelectorAll('#content .btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const action = this.textContent.trim();
-            if (action === 'Approve') {
-                alert('Content approved (simulated)');
-                // Add code to handle approve action
-            } else if (action === 'Reject') {
-                alert('Content rejected (simulated)');
-                // Add code to handle reject action
-            }
-        });
-    });
-});
+    if (addUserBtn) {
+      addUserBtn.onclick = function () {
+        alert('Add User functionality would open a form here');
+      };
+    }
+  });
