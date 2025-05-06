@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="f_pass_container">
-        <form id="forgotPasswordForm">
+        <form id="forgotPasswordForm" onsubmit="return validateForgotPassword()">
             <h2>Forgot Password</h2>
             <p>Please enter your email address below. We will send you a link to reset your password.</p>
             
@@ -16,7 +16,7 @@
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
             <button type="submit" id="submit">Send Reset Link</button>
-            <p>Remembered your password? <a href="/view/user_authentication/login.html">Login here</a></p>
+            <p>Remembered your password? <a href="/Weather-APP/view/user_authentication/login.php">Login here</a></p>
         </form>
     </div>
 
