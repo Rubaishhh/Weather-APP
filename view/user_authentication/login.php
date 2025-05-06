@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
-    // Basic dummy validation (replace with DB check)
     if (!empty($username) && !empty($password)) {
         $_SESSION['logged_in'] = true;
         $_SESSION['username'] = $username;
