@@ -8,7 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = trim($_POST['password'] ?? '');
 
     if (!empty($username) && !empty($password)) {
-        $_SESSION['logged_in'] = true;
+        //$_SESSION['logged_in'] = true;
+        setcookie("status", 'true', time()+3000, "/"); 
         $_SESSION['username'] = $username;
 
         header("Location: /Weather-APP/view/Dashboard/dashboard.php");
