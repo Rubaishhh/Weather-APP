@@ -7,9 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
-    // Basic dummy validation (replace with DB check)
     if (!empty($username) && !empty($password)) {
-        $_SESSION['logged_in'] = true;
+        //$_SESSION['logged_in'] = true;
+        setcookie("status", 'true', time()+3000, "/"); 
         $_SESSION['username'] = $username;
 
         header("Location: /Weather-APP/view/Dashboard/dashboard.php");

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
     header("Location: /Weather-APP/view/user_authentication/login.php?status=unauthorized");
     exit;
 }
@@ -52,11 +52,11 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
       <p id="w-temp">--°C</p>
     </div>
     <div class="widget-card clickable" onclick="toggleWind()">
-      <h3>🌬 Wind</h3>
+      <h3>Wind</h3>
       <p id="w-wind">-- km/h</p>
     </div>
     <div class="widget-card clickable" onclick="togglePressure()">
-      <h3>🔽 Pressure</h3>
+      <h3>Pressure</h3>
       <p id="w-pressure">-- mb</p>
     </div>
     <div class="widget-card">
