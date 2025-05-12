@@ -1,6 +1,12 @@
 <?php
 session_start();
-if(isset($_SESSION['status'])){
+
+$check = $_SERVER['HTTP_REFERER'] ?? '';
+// it is a superglobal var. etr modhe current page e ashar age kon page e chilo otr info
+//thake , eta basically url return kore
+//ekhn just url er modhe strpos die dekhbo je login.php ase ki na
+
+if(strpos($check, 'login.php')!== false){
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +80,8 @@ if(isset($_SESSION['status'])){
 </body>
 </html>
 <?php
-}else{
-    header('location: /Weather-APP/view/user_authentication/login.php');
+} else {
+    header('Location: /Weather-APP/view/user_authentication/login.php');
+    exit;
 }
 ?>

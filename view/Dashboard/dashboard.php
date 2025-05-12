@@ -1,8 +1,13 @@
 <?php
 session_start();
 
+<<<<<<< HEAD
 if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
     header("Location: /Weather-APP/view/user_authentication/login.php?status=unauthorized");
+=======
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: /Weather-APP/view/user_authentication/login.php");
+>>>>>>> f262e906fef77a99a04fd505b65f347f726c7377
     exit;
 }
 ?>
