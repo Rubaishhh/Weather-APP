@@ -1,0 +1,128 @@
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #dcf4f7, #ece9e6);
+}
+
+.container {
+    display: flex;
+    width: 1000px;
+    height: 650px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 1s ease-in;
+}
+
+.form-section {
+    background: linear-gradient(145deg, #ffffff, #f7f7f7); /* Subtle gradient for depth */
+    width: 40%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05); 
+}
+
+.image-section {
+    background: linear-gradient(to right, #f7f7f7, #278d9c); /* Sunset gradient */
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-top-right-radius: 20px; /*Q*/
+    border-bottom-right-radius: 20px;
+}
+
+.image-section img {
+    max-width: 70%;
+    max-height: 70%;
+    scale: 1.9;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.image-section img:hover {
+    transform: scale(1.2);
+}
+
+form {
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    color: #34495e;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #dfe6e9;
+    border-radius: 8px;
+    font-size: 14px;
+    
+}
+
+input:focus {
+    border-color:#278d9c;
+    box-shadow: 0 0 5px rgba(255, 111, 97, 0.3);
+    outline: none;
+}
+
+button {
+    background: linear-gradient(to right, #2c3e50, #4ca1af); 
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+button#reset {
+    background: linear-gradient(to right, #dfe6e9, #b2bec3); 
+}
+
+button:hover {
+    background: linear-gradient(to right, #1a2530, #2a5a61); /* Purple hover effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    color: #636e72;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff6f61; /* Match sunset gradient */
+    text-decoration: underline;
+}
+
+p {
+    margin-top: 15px;
+    color: #7f8c8d;
+    font-size: 12px;
+}

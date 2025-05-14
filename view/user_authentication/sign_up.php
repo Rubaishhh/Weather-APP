@@ -15,7 +15,7 @@ if(strpos($check, 'login.php')!== false){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Weather-APP/css/signup.css">
+    <link rel="stylesheet" href="../../asset/css/signup.css">
 </head>
 <body>
     <form id="signupForm">
@@ -68,7 +68,7 @@ if(strpos($check, 'login.php')!== false){
 </select>
 <br>
 
-<p>Already have an account? <a href="/Weather-APP/view/user_authentication/login.php">Login here</a></p>
+<p>Already have an account? <a href="../user_authentication/login.php">Login here</a></p>
 <div class="buttons">
     <button type="button" id="submit" onclick="validate_signup()">Sign up</button>
     <button type="reset" id="reset">Reset</button>
@@ -81,7 +81,7 @@ if(strpos($check, 'login.php')!== false){
 </html>
 <?php
 } else {
-    header('Location: /Weather-APP/view/user_authentication/login.php');
+    header('Location: login.php');
     exit;
 }
 ?>

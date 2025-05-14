@@ -2,12 +2,9 @@
 session_start();
 
 if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
-    header("Location: /Weather-APP/view/user_authentication/login.php?status=unauthorized");
-  }
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    header("Location: /Weather-APP/view/user_authentication/login.php");
+    header("Location: ../user_authentication/login.php");
     exit;
-}
+  }
 ?>
 
 
@@ -17,7 +14,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/Weather-APP/css/dashboard.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
 </head>
 <body>
     <div class="container">
@@ -80,6 +77,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         </section>
       </div>
     
-      <script src="js/dashboard.js"></script>
+      <script src="../../js/dashboard.js"></script>
 </body>
 </html>

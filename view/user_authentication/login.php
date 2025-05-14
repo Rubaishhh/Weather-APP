@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         setcookie("status", 'true', time()+3000, "/"); 
         $_SESSION['username'] = $username;
 
-        header("Location: /Weather-APP/view/Dashboard/dashboard.php");
+        header("Location: ../Dashboard/dashboard.php");
         exit;
     } else {
         $error_message = "Username and Password are required!";
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/Weather-APP/css/login.css">
+    <link rel="stylesheet" href="../../asset/css/login.css">
 </head>
 <body>
     <div class="container">
@@ -49,11 +49,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <button type="submit">Login</button>
                 <button type="reset">Reset</button><br><br>
 
-                <p>Don't have an account? <a href="/Weather-APP/view/user_authentication/sign_up.php">Sign up here</a></p>
+                <p>Don't have an account? <a href="../user_authentication/sign_up.php">Sign up here</a></p>
             </form>
         </div>
         <div class="image-section">
-            <img src="" alt="Logo">
+            <img src="../../asset/images and icons/Skysence_logo.png" alt="Logo">
         </div>
     </div>
 
