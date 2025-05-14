@@ -14,15 +14,15 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../asset/css/dashboard.css">
 </head>
 <body>
     <div class="container">
         <!--for the location, date and time, search box-->
         <div class="top-section">
           <div class="location">
-            <h1 id="city-name">City</h1>
-            <p id="date-time">Date | Time</p>
+            <h1 id="city_name">City</h1>
+            <p id="date_time">Date | Time</p>
           </div>
 
           <div class="search-bar">
@@ -77,6 +77,6 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
         </section>
       </div>
     
-      <script src="../../js/dashboard.js"></script>
+      <script src="../../asset/js/dashboard.js"></script>
 </body>
 </html>
