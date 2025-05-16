@@ -18,7 +18,7 @@ if(strpos($check, 'login.php')!== false){
     <link rel="stylesheet" href="../../asset/css/signup.css">
 </head>
 <body>
-    <form id="signupForm">
+    <form id="signupForm" action="../../controller/sign_up_handler.php" method="POST" onsubmit="return validate_signup()">
     <h2>Sign up</h2>
     <label for="username"> User name :</label>
     <input type="text" id="username" name="username" required><br><br>
@@ -70,12 +70,12 @@ if(strpos($check, 'login.php')!== false){
 
 <p>Already have an account? <a href="../user_authentication/login.php">Login here</a></p>
 <div class="buttons">
-    <button type="button" id="submit" onclick="validate_signup()">Sign up</button>
+    <button type="submit" id="submit">Sign up</button>
     <button type="reset" id="reset">Reset</button>
     <button type="button" id="cancel">Cancel</button><br><br>
 </div>
 </form>
-<script src="/js/validate_signup.js"></script>
+<script src="../../asset/js/validate_signup.js"></script>
 
 </body>
 </html>

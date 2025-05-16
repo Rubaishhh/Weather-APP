@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
     <div class="container">
         <div class="form-section">
-            <form method="POST" action="login.php" onsubmit="return validateForm()">
+            <form method="POST" action="login.php">
                 <h2>Login</h2>
 
                 <?php if (!empty($error_message)): ?>
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <p><a href="../user_authentication/forgot_password.php">Forgot Password?</a></p>
 
-                <button type="submit">Login</button>
+                <button type="submit" onclick="validateForm()">Login</button>
                 <button type="reset">Reset</button><br><br>
 
                 <p>Don't have an account? <a href="../user_authentication/sign_up.php">Sign up here</a></p>
@@ -57,17 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
     </div>
 
-    <script>
-        function validateForm() {
-            var username = document.getElementById("username").value.trim();
-            var password = document.getElementById("password").value.trim();
-
-            if (username === "" || password === "") {
-                alert("Both fields are required. Please fill in the username and password.");
-                return false;
-            }
-            return true;
-        }
-    </script>
+    <script src="../../asset/js/validate_login.js"></script>
 </body>
 </html>

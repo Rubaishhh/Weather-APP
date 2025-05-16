@@ -35,10 +35,6 @@ function validate_signup() {
         alert("Please enter a valid email address.");
         return;
     }
-    
-
-    alert("Form submitted successfully!");
-
 //checking
     console.log("Username:", username);
     console.log("Fullname:", fullname);
@@ -48,4 +44,6 @@ function validate_signup() {
     console.log("Gender:", gender.value);
     console.log("Address:", address);
     console.log("Country:", country);
+    console.log(document.getElementById("signupForm"));
+    return true;
 }
