@@ -16,11 +16,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $result = sign_up($uname, $fname, $email, $password, $phone, $dob, $gender, $address, $country);
 
-    if ($result) {
+    if ($result === true) {
         header("Location: ../view/user_authentication/login.php");
         exit;
-    } else {
-        echo "Signup failed! Please try again.";
+    }else if($result === "exists" ){
+        header("Location: ../view/user_authentication/sign_up.php?error=username_exists");
+        
+    }
+     else {
+        echo "<script>alert('Signup failed. Try again!!');</script>";
     }
 }
 ?>

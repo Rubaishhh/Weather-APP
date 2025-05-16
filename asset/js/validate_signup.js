@@ -35,15 +35,14 @@ function validate_signup() {
         alert("Please enter a valid email address.");
         return;
     }
-//checking
-    console.log("Username:", username);
-    console.log("Fullname:", fullname);
-    console.log("Email:", email);
-    console.log("Phone:", phone);
-    console.log("DOB:", dob);
-    console.log("Gender:", gender.value);
-    console.log("Address:", address);
-    console.log("Country:", country);
-    console.log(document.getElementById("signupForm"));
+    // console.log("Username:", username);
+    // console.log("Fullname:", fullname);
+    // console.log("Email:", email);
+    // console.log("Phone:", phone);
+    // console.log("DOB:", dob);
+    // console.log("Gender:", gender.value);
+    // console.log("Address:", address);
+    // console.log("Country:", country);
+    // console.log(document.getElementById("signupForm"));
     return true;
 }
