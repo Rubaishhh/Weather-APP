@@ -1,0 +1,37 @@
+body {
+  font-family: sans-serif;
+  background: #f0f8ff;
+  text-align: center;
+  padding: 40px;
+}
+
+.container {
+  max-width: 400px;
+  background: white;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px gray;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.weather-box {
+  background: #e6f2ff;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.links {
+  margin-top: 20px;
+}
