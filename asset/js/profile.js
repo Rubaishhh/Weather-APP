@@ -1,20 +1,20 @@
-document.getElementById("picture_up").addEventListener("change", function(event) {
-    const file = event.target.files[0];
+// document.getElementById("picture_up").addEventListener("change", function(event) {
+//     const file = event.target.files[0];
 
-    if (!file) {
-        return;
-    }
+//     if (!file) {
+//         return;
+//     }
 
-    const validFormats = ["image/png", "image/jpeg"];
+//     const validFormats = ["image/png", "image/jpeg"];
 
-    if (!validFormats.includes(file.type)) { // MIME format e return kore like image/png image/jpeg
-        alert("Please upload a PNG or JPEG image.");
-        return;
-    }
+//     if (!validFormats.includes(file.type)) { // MIME format e return kore like image/png image/jpeg
+//         alert("Please upload a PNG or JPEG image.");
+//         return;
+//     }
 
-    const profilePic = document.querySelector(".picture img");
-    profilePic.src = URL.createObjectURL(file);
-});
+//     const profilePic = document.querySelector(".picture img");
+//     profilePic.src = URL.createObjectURL(file);
+// });
 
 
 

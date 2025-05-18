@@ -45,5 +45,21 @@ function sign_up($uname, $fname,$email, $hashedPassword, $phone, $dob, $gender, 
     }
 }
 
+function getUserInfo($username){
+
+    $con = getConnection();
+
+    $sql = "select * from user_info where uname = '$username'";
+    $result = mysqli_query($con, $sql);
+
+    if (mysqli_num_rows($result) === 1) {
+        $userData = mysqli_fetch_assoc($result);
+        return $userData;
+    } else {
+        return null; // User not found
+    }
+
+}
+
 
 ?>

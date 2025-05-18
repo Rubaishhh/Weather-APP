@@ -18,6 +18,10 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
 </head>
 <body>
     <div class="container">
+        <button onclick="window.location.href='../profile_management/profile_management.php'" class="profileMGT">
+          Your Profile
+        </button>
+
         <!--for the location, date and time, search box-->
         <div class="top-section">
           <div class="location">
