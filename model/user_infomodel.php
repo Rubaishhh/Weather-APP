@@ -1,6 +1,27 @@
 <?php
 require_once('db.php');
 
+
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~LOGIN~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function login_user($username, $password){
+
+    $con = getConnection();
+
+    $sql = "select * from user_info where uname = '$username' and password = '$password'";
+    $result = mysqli_query($con, $sql);
+
+    if($result && mysqli_num_rows($result)===1){
+        $user = mysqli_fetch_assoc($result);
+        return $user;
+    }
+
+    return false;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SIGN UP~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function sign_up($uname, $fname,$email, $hashedPassword, $phone, $dob, $gender, $address, $country){
 
     $con = getConnection();

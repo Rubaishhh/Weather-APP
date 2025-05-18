@@ -1,25 +1,3 @@
-<?php
-session_start();
-
-$error_message = "";
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $username = trim($_POST['username'] ?? '');
-    $password = trim($_POST['password'] ?? '');
-
-    if (!empty($username) && !empty($password)) {
-        //$_SESSION['logged_in'] = true;
-        setcookie("status", 'true', time()+3000, "/"); 
-        $_SESSION['username'] = $username;
-
-        header("Location: ../Dashboard/dashboard.php");
-        exit;
-    } else {
-        $error_message = "Username and Password are required!";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
     <div class="container">
         <div class="form-section">
-            <form method="POST" action="login.php">
+            <form method="POST" action="../../controller/loginCheck.php">
                 <h2>Login</h2>
 
                 <?php if (!empty($error_message)): ?>
