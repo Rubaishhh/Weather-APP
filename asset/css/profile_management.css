@@ -1,81 +1,89 @@
+/* profile_management.css */
 body {
-    font-family: Arial, sans-serif;
-    background:#ccc;
-    padding: 40px;
-  }
-.main_container {
-    max-width: 500px;
-    background: #fff;
-    margin: auto;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  h1 {
-    text-align: center;
-  }
-  .picture {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .picture img {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #ccc;
-  }
-  
-  input[type="file"] {
-    margin-top: 10px;
-  }
-  
-  form label {
-    display: block; 
-
-    margin-top: 10px;
-    font-weight: bold;
-  }
-  
-  input[type="text"], input[type="email"], input[type="tel"], select, textarea 
-  {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-color: #ccc;
-    border-radius: 4px;
-  }
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  .gender {
-    display: flex;
-    gap: 10px;
-  }
-  .gender label {
-    font-weight: normal;
-  }
-
-h2{
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #2c3e50, #4ca1af); 
+  margin: 0;
+  padding: 40px;
 }
 
-  .form_btn {
-    margin-top: 20px;
-    text-align: center;
-  }
-  .form_btn button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    background: #3498db;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .form_btn button:hover {
-    background: #2943b9;
-  }
+.container {
+  background: #ffffff;
+  max-width: 750px;
+  margin: auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+.profile_img_sec {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile_img_sec img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #3498db;
+  transition: 0.3s;
+}
+
+.profile_img_sec img:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+#picture_up {
+  display: none;
+}
+
+.form_grp {
+  margin-bottom: 20px;
+}
+
+.form_grp label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form_grp input,
+.form_grp textarea,
+.form_grp select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+.form_btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form_btn button {
+  padding: 10px 25px;
+  text-align: center;
+  font-size: 16px;
+background: linear-gradient(to right, #2c3e50, #4ca1af); 
+  color: white;  
+  font-weight: bold;
+  border: none  ;
+  border-radius: 6px;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.form_btn button:hover {
+background: linear-gradient(to right,  #4ca1af, #2c3e50); 
+}

@@ -44,6 +44,7 @@ function sign_up($uname, $fname,$email, $pass, $phone, $dob, $gender, $address, 
         return false;
     }
 }
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Profile Management~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function getUserInfo($username){
 
@@ -61,5 +62,20 @@ function getUserInfo($username){
 
 }
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Profile Update~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+function updateUserInfo($username, $fullname, $email, $phone, $gender, $address, $country, $img_name) {
+    $conn = getConnection(); 
+    $sql = "UPDATE user_info 
+            SET fname = '$fullname', email = '$email', phone = '$phone', gender = '$gender', 
+            address = '$address', country = '$country', img_name = '$img_name' 
+        WHERE uname = '$username'";
+
+    $result = mysqli_querry($conn, $sql);
+    if (!$result) {
+        return false;
+    }
+    return $result;
+}
 
 ?>

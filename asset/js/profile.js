@@ -1,21 +1,10 @@
-// document.getElementById("picture_up").addEventListener("change", function(event) {
-//     const file = event.target.files[0];
-
-//     if (!file) {
-//         return;
-//     }
-
-//     const validFormats = ["image/png", "image/jpeg"];
-
-//     if (!validFormats.includes(file.type)) { // MIME format e return kore like image/png image/jpeg
-//         alert("Please upload a PNG or JPEG image.");
-//         return;
-//     }
-
-//     const profilePic = document.querySelector(".picture img");
-//     profilePic.src = URL.createObjectURL(file);
-// });
-
+function previewImage(event) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        document.getElementById('profilePreview').src = reader.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
 
 
 function saveProfile(){
@@ -38,4 +27,6 @@ function saveProfile(){
     }
     
       alert("Profile saved successfully!");
+          document.getElementById('profile_form').submit();
+
 }
