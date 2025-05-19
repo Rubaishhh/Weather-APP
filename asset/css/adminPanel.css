@@ -1,148 +1,80 @@
-/* Basic Reset */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-/* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    padding: 20px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(240, 240, 240);
 }
 
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    padding: 20px;
+#container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
 }
 
-/* Heading */
-h1 {
-    color: #333;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+#title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: rgb(50, 50, 120);
 }
 
-/* Tabs */
-.tabs {
-    display: flex;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
+.tabButton {
+  background-color: rgb(220, 220, 220);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.tab-btn {
-    padding: 10px 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    color: #666;
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s ease;
+.tabSection {
+  margin-top: 20px;
 }
 
-.tab-btn.active {
-    color: #2c7be5;
-    border-bottom: 2px solid #2c7be5;
-    font-weight: bold;
-}
-
-/* Tab Content */
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-/* Search Filter */
-.search-filter {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
-}
-
-.search-box {
-    flex: 1;
-}
-
-.search-box input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-/* Buttons */
-.btn {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.btn-primary {
-    background-color: #2c7be5;
-    color: white;
-}
-
-.btn-danger {
-    background-color: #e63757;
-    color: white;
-}
-
-/* Table */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
 }
 
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
 }
 
 th {
-    background-color: #f9f9f9;
+  background-color: rgb(230, 230, 230);
 }
 
-/* Form Group */
-.form-group {
-    margin-bottom: 15px;
+input[type="text"] {
+  padding: 8px;
+  width: 250px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid rgb(204, 204, 204);
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+#saveBtn {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-input[type="text"], select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .tabs {
-        flex-direction: column;
-    }
-
-    .search-filter {
-        flex-direction: column;
-    }
+#addUserBtn {
+  background-color: rgb(0, 100, 200);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
 }

@@ -1,53 +1,48 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = [
-      document.getElementById('users'),
-      document.getElementById('content'),
-      document.getElementById('settings')
-    ];
+let usermanagementContent = document.getElementById("usermanagementContent");
+let contentmoderationContent = document.getElementById("contentmoderationContent");
+let settingsContent = document.getElementById("settingsContent");
 
-    tabButtons.forEach(function (btn, index) {
-      btn.onclick = function () {
-        // Deactivate all tabs
-        tabButtons.forEach(function (b) {
-          b.className = 'tab-btn';
-        });
-        tabContents.forEach(function (content) {
-          content.className = 'tab-content';
-        });
+let usermanagementBtn = document.getElementById("usermanagement");
+let contentmoderationBtn = document.getElementById("contentmoderation");
+let settingsBtn = document.getElementById("settings");
 
-        // Activate current tab
-        btn.className = 'tab-btn active';
-        tabContents[index].className = 'tab-content active';
-      };
-    });
+function clearTabs() {
+  usermanagementContent.style.display = "none";
+  contentmoderationContent.style.display = "none";
+  settingsContent.style.display = "none";
 
-    const settingsForm = document.getElementById('settings-form');
-    if (settingsForm) {
-      settingsForm.onsubmit = function (e) {
-        e.preventDefault();
-        const siteName = document.getElementById('site-name').value;
-        const siteUrl = document.getElementById('site-url').value;
-        const timezone = document.getElementById('timezone').value;
+  usermanagementBtn.style.backgroundColor = "rgb(220,220,220)";
+  contentmoderationBtn.style.backgroundColor = "rgb(220,220,220)";
+  settingsBtn.style.backgroundColor = "rgb(220,220,220)";
+}
 
-        if (!siteName || !siteUrl) {
-          alert('Please fill in all required fields');
-          return;
-        }
+usermanagementBtn.onclick = function () {
+  clearTabs();
+  usermanagementContent.style.display = "block";
+  usermanagementBtn.style.backgroundColor = "rgb(180,180,250)";
+};
 
-        if (!siteUrl.startsWith('http://') && !siteUrl.startsWith('https://')) {
-          alert('Please enter a valid URL starting with http:// or https://');
-          return;
-        }
+contentmoderationBtn.onclick = function () {
+  clearTabs();
+  contentmoderationContent.style.display = "block";
+  contentmoderationBtn.style.backgroundColor = "rgb(180,180,250)";
+};
 
-        alert('Settings saved successfully!');
-      };
-    }
+settingsBtn.onclick = function () {
+  clearTabs();
+  settingsContent.style.display = "block";
+  settingsBtn.style.backgroundColor = "rgb(180,180,250)";
+};
 
-    const addUserBtn = document.querySelector('#users .btn-primary');
-    if (addUserBtn) {
-      addUserBtn.onclick = function () {
-        alert('Add User functionality would open a form here');
-      };
-    }
-  });
+document.getElementById("saveBtn").onclick = function () {
+  let location = document.getElementById("defaultLocation").value;
+  if (location === "") {
+    alert("Please enter a location.");
+  } else {
+    alert("Location saved: " + location);
+  }
+};
+
+document.getElementById("addUserBtn").onclick = function () {
+  alert("User form will open");
+};

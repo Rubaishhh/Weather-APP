@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App - Contact Us</title>
-    <link rel="stylesheet" href="/css/contactUs.css"> <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="../../asset/css/contactUs.css"> 
   
 </head>
 <body>
@@ -28,14 +28,14 @@
                         </div>
                     </div>
                     <div class="info-item">
-                        <i class="fas fa-phone-alt"></i>
+                        <i class=""></i>
                         <div>
                             <h4>Phone</h4>
                             <p>+880  1313643812</p>
                         </div>
                     </div>
                     <div class="info-item">
-                        <i class="fas fa-envelope"></i>
+                        <i class=""></i>
                         <div>
                             <h4>Email</h4>
                             <p>support@weatherapp.com</p>
@@ -77,7 +77,7 @@
                         <div class="captcha-container">
                             <div class="captcha-code" id="captchaText"></div>
                             <button type="button" class="refresh-captcha" id="refreshCaptcha">
-                                <i class="fas fa-sync-alt"></i> Refresh CAPTCHA
+                                <i class="refresh-captcha"></i> Refresh CAPTCHA
                             </button>
                         </div>
                         <input type="text" id="captchaInput" class="form-control" placeholder="Enter CAPTCHA code">
@@ -101,7 +101,7 @@
         </div>
     </footer>
 
-<script src="/js/contactUs.js"></script>
+<script src="../../asset/js/contactUs.js"></script>
 
 </body>
 </html>

@@ -4,66 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Weather App Notifications</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <link rel="stylesheet" href="/css/notification.css" />
+  
+  <link rel="stylesheet" href="../../asset/css/notification.css" />
 </head>
 <body>
-  <h1>Weather App</h1>
-
-  <div class="notification-bell" id="bell" onclick="showNotifications()">
-    <i class="fas fa-bell"></i>
-    <span class="badge" id="badge">2</span>
-  </div>
-
-  <div class="container">
-    <div class="tabs">
-      <button class="tab active" id="tab-notifications" onclick="showTab('notifications')">Notifications</button>
-      <button class="tab" id="tab-settings" onclick="showTab('settings')">Settings</button>
+   <header>
+    <div class="app-title">Weather App</div>
+    <div class="bell-container" id="weatherAlertBell">
+      🔔
     </div>
-
-    <div class="tab-content active" id="notifications-tab">
-      <div class="notification unread" id="weather-alert" onclick="markAsRead(this)">
-        <div class="notification-icon"><i class="fas fa-bolt"></i></div>
-        <div class="notification-text">
-          <p>Severe thunderstorm warning in your area</p>
-          <div class="notification-time">10 min ago</div>
-        </div>
-      </div>
-
-      <div class="notification unread" onclick="markAsRead(this)">
-        <div class="notification-icon"><i class="fas fa-umbrella"></i></div>
-        <div class="notification-text">
-          <p>Rain expected tomorrow morning</p>
-          <div class="notification-time">2 hours ago</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-content" id="settings-tab">
-      <div class="setting">
-        <div>
-          <h4>Email Notifications</h4>
-          <p>Receive alerts via email</p>
-        </div>
-        <label class="toggle">
-          <input type="checkbox" checked onclick="toggleSetting('Email Notifications', this)">
-          <span class="slider"></span>
-        </label>
-      </div>
-
-      <div class="setting">
-        <div>
-          <h4>Push Notifications</h4>
-          <p>Receive alerts on this device</p>
-        </div>
-        <label class="toggle">
-          <input type="checkbox" checked onclick="toggleSetting('Push Notifications', this)">
-          <span class="slider"></span>
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <script src="/js/notification.js"></script>
+  </header>
+     
+      
+  <script src="../../asset/js/notification.js"></script>
 </body>
 </html>

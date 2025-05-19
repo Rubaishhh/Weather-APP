@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Weather Data Archive</title>
-  <link rel="stylesheet" href="/css/historicalData.css">
+  <link rel="stylesheet" href="../../asset/css/historicalData.css">
 </head>
 <body>
   <div class="container">
@@ -34,6 +34,6 @@
     </div>
   </div>
 
-  <script src="/js/historicalData.js"></script>
+  <script src="../../asset/js/historicalData.js"></script>
 </body>
 </html>

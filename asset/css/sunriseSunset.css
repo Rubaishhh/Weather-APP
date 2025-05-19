@@ -1,129 +1,48 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  body {
-    background: linear-gradient(to right, rgb(176, 219, 235), rgb(8, 134, 218));
-    color: rgb(255, 255, 255);
-    min-height: 100vh;
-    padding: 20px;
-  }
-  
-  .container {
-    max-width: 800px;
-    margin: auto;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .tab-btn {
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    border-radius: 5px 5px 0 0;
-    margin: 0 5px;
-  }
-  
-  .tab-btn.active {
-    background: rgb(255, 255, 255);
-    font-weight: bold;
-    color: rgb(8, 134, 218);
-  }
-  
-  .tab-content {
-    display: none;
-    background: rgba(255, 255, 255, 0.3);
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .tab-content.active {
-    display: block;
-  }
-  
-  .time-display {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
-  }
-  
-  .time-box {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 15px;
-    border-radius: 10px;
-    min-width: 120px;
-  }
-  
-  .progress-container {
-    height: 30px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    margin: 20px 0;
-    overflow: hidden;
-  }
-  
-  .progress-bar {
-    height: 100%;
-    background: linear-gradient(to right, rgb(8, 134, 218), rgb(176, 219, 235));
-    width: 50%;
-  }
-  
-  .golden-hour-container, .moon-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-  }
-  
-  .golden-hour, .moon-info {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 15px;
-    border-radius: 10px;
-    width: 48%;
-    text-align: center;
-    color: rgb(255, 255, 255);
-  }
-  
-  .moon-phase {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: linear-gradient(90deg, rgb(80, 80, 90) 50%, transparent 50%);
-    margin-right: 20px;
-    position: relative;
-  }
-  
-  .moon-container {
-    align-items: center;
-  }
-  
-  @media (max-width: 600px) {
-    .time-display, .golden-hour-container, .moon-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .time-box, .golden-hour, .moon-info {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-  
-    .moon-phase {
-      margin-bottom: 15px;
-    }
-  }
-  
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: rgb(230, 230, 250);
+}
+
+h2 {
+  color: rgb(50, 50, 100);
+}
+
+button {
+  padding: 8px 16px;
+  margin: 10px 0;
+  background: rgb(100, 150, 250);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgb(70, 120, 220);
+}
+
+input[type="text"] {
+  padding: 6px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+#tabs button {
+  background: rgb(230, 240, 255);
+  border: 1px solid rgb(150, 150, 220);
+  margin-right: 4px;
+  padding: 6px 12px;
+}
+
+#tabs button.active {
+  background: rgb(100, 150, 250);
+  color: white;
+}
+
+.tab-content {
+  border: 1px solid rgb(150, 150, 220);
+  padding: 15px;
+  margin-top: 10px;
+  background: white;
+  display: none;
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Share Weather Snapshot - Weather App</title>
-    <link rel="stylesheet" href="/css/shareFeature.css">
+    <link rel="stylesheet" href="../../asset/css/shareFeature.css">
 </head>
 <body>
     <header>
@@ -18,6 +18,6 @@
         <div id="snapshot"></div>
         <button onclick="shareContent()">Share</button>
       </div>
-      <script src="/js/shareFeature.js"></script>
+      <script src="../../asset/js/shareFeature.js"></script>
 </body>
 </html>

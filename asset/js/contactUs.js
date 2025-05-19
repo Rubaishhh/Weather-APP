@@ -8,12 +8,12 @@ function generateCaptcha() {
 }
 
 let currentCaptcha = generateCaptcha();
-document.getElementById('captchaText').textContent = currentCaptcha;
+document.getElementById('captchaText').innerHTML = currentCaptcha;
 
 // Refresh CAPTCHA functionality
 document.getElementById('refreshCaptcha').onclick = function() {
     currentCaptcha = generateCaptcha();
-    document.getElementById('captchaText').textContent = currentCaptcha;
+    document.getElementById('captchaText').innerHTML= currentCaptcha;
     document.getElementById('captchaInput').value = ''; // Clear CAPTCHA input
     document.getElementById('captcha-error').style.display = 'none'; // Hide error message
 };

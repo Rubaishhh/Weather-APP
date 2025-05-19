@@ -1,42 +1,33 @@
-function switchTab(tabId) {
-    // Select all the tab buttons and content divs
-    var dayNightTab = document.getElementById('day-night-tab');
-    var goldenHourTab = document.getElementById('golden-hour-tab');
-    var moonPhaseTab = document.getElementById('moon-phase-tab');
-  
-    var dayNightContent = document.getElementById('day-night');
-    var goldenHourContent = document.getElementById('golden-hour');
-    var moonPhaseContent = document.getElementById('moon-phase');
-  
-    // Remove the active class manually
-    dayNightTab.className = dayNightTab.className.replace(' active', '');
-    goldenHourTab.className = goldenHourTab.className.replace(' active', '');
-    moonPhaseTab.className = moonPhaseTab.className.replace(' active', '');
-  
-    dayNightContent.className = dayNightContent.className.replace(' active', '');
-    goldenHourContent.className = goldenHourContent.className.replace(' active', '');
-    moonPhaseContent.className = moonPhaseContent.className.replace(' active', '');
-  
-    // Add the active class to the clicked tab and corresponding content
-    if (tabId === 'day-night') {
-      dayNightTab.className += ' active';
-      dayNightContent.className += ' active';
-    } else if (tabId === 'golden-hour') {
-      goldenHourTab.className += ' active';
-      goldenHourContent.className += ' active';
-    } else if (tabId === 'moon-phase') {
-      moonPhaseTab.className += ' active';
-      moonPhaseContent.className += ' active';
-    }
+function showTab(tabId) {
+  document.getElementById('day-night').style.display = 'none';
+  document.getElementById('golden-hour').style.display = 'none';
+  document.getElementById('moon').style.display = 'none';
+
+  document.getElementById('dayNightTabBtn').style.backgroundColor = 'rgb(200, 200, 250)';
+  document.getElementById('dayNightTabBtn').style.color = 'black';
+  document.getElementById('goldenHourTabBtn').style.backgroundColor = 'rgb(200, 200, 250)';
+  document.getElementById('goldenHourTabBtn').style.color = 'black';
+  document.getElementById('moonTabBtn').style.backgroundColor = 'rgb(200, 200, 250)';
+  document.getElementById('moonTabBtn').style.color = 'black';
+
+  document.getElementById(tabId).style.display = 'block';
+
+  if (tabId === 'day-night') {
+    document.getElementById('dayNightTabBtn').style.backgroundColor = 'rgb(100, 150, 250)';
+    document.getElementById('dayNightTabBtn').style.color = 'white';
+  } else if (tabId === 'golden-hour') {
+    document.getElementById('goldenHourTabBtn').style.backgroundColor = 'rgb(100, 150, 250)';
+    document.getElementById('goldenHourTabBtn').style.color = 'white';
+  } else if (tabId === 'moon') {
+    document.getElementById('moonTabBtn').style.backgroundColor = 'rgb(100, 150, 250)';
+    document.getElementById('moonTabBtn').style.color = 'white';
   }
-  
-  document.getElementById('day-night-tab').onclick = function () {
-    switchTab('day-night');
-  };
-  document.getElementById('golden-hour-tab').onclick = function () {
-    switchTab('golden-hour');
-  };
-  document.getElementById('moon-phase-tab').onclick = function () {
-    switchTab('moon-phase');
-  };
-  
+}
+
+
+document.getElementById('dayNightTabBtn').onclick = function () { showTab('day-night'); };
+document.getElementById('goldenHourTabBtn').onclick = function () { showTab('golden-hour'); };
+document.getElementById('moonTabBtn').onclick = function () { showTab('moon'); };
+
+
+showTab('day-night');

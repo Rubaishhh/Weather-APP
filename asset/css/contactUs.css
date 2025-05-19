@@ -1,14 +1,13 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: #f5f7fa;
-    color: #333;
+    background-color: rgb(245, 247, 250);
+    color: rgb(51, 51, 51);
     line-height: 1.6;
     font-size: 16px;
 }
@@ -20,10 +19,10 @@ body {
 }
 
 header {
-    background: linear-gradient(135deg, #6e8efb, #a777e3);
-    color: white;
+    background: linear-gradient(135deg, rgb(110, 142, 251), rgb(167, 119, 227));
+    color: rgb(255, 255, 255);
     padding: 20px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgb(230, 230, 230); /* rgba(0,0,0,0.1) approx */
 }
 
 .header-content {
@@ -45,7 +44,7 @@ header {
 .section-title {
     text-align: center;
     font-size: 32px;
-    color: #333;
+    color: rgb(51, 51, 51);
     margin-bottom: 30px;
     font-weight: bold;
 }
@@ -59,9 +58,9 @@ header {
 .contact-info {
     flex: 1;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgb(230, 230, 230); /* rgba(0,0,0,0.1) approx */
 }
 
 .contact-info h3 {
@@ -78,7 +77,7 @@ header {
 .info-item i {
     font-size: 24px;
     margin-right: 10px;
-    color: #6e8efb;
+    color: rgb(110, 142, 251);
 }
 
 .info-item h4 {
@@ -87,15 +86,15 @@ header {
 }
 
 .info-item p {
-    color: #555;
+    color: rgb(85, 85, 85);
 }
 
 .contact-form {
     flex: 2;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgb(230, 230, 230); /* rgba(0,0,0,0.1) approx */
 }
 
 .form-group {
@@ -105,23 +104,25 @@ header {
 .form-group label {
     font-size: 16px;
     font-weight: bold;
-    color: #333;
+    color: rgb(51, 51, 51);
     margin-bottom: 8px;
     display: block;
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(204, 204, 204); /* #ccc */
     border-radius: 5px;
     outline: none;
     transition: all 0.3s ease;
 }
 
-.form-group input:focus, .form-group textarea:focus {
-    border-color: #6e8efb;
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: rgb(110, 142, 251);
 }
 
 .form-group textarea {
@@ -141,7 +142,7 @@ header {
     font-weight: bold;
     letter-spacing: 3px;
     padding: 8px 15px;
-    background: #f0f0f0;
+    background: rgb(240, 240, 240);
     border-radius: 5px;
     margin-right: 15px;
     user-select: none;
@@ -150,7 +151,7 @@ header {
 .refresh-captcha {
     background: none;
     border: none;
-    color: #6e8efb;
+    color: rgb(110, 142, 251);
     cursor: pointer;
     font-size: 18px;
     display: flex;
@@ -162,7 +163,7 @@ header {
 }
 
 .error-message {
-    color: #e74c3c;
+    color: rgb(231, 76, 60);
     font-size: 14px;
     display: none;
 }
@@ -171,15 +172,15 @@ header {
     display: none;
     text-align: center;
     padding: 20px;
-    background-color: #2ecc71;
-    color: white;
+    background-color: rgb(46, 204, 113);
+    color: rgb(255, 255, 255);
     border-radius: 8px;
     margin-top: 20px;
 }
 
 footer {
-    background: #2c3e50;
-    color: white;
+    background: rgb(44, 62, 80);
+    color: rgb(255, 255, 255);
     text-align: center;
     padding: 20px 0;
     margin-top: 40px;
@@ -190,8 +191,8 @@ footer p {
 }
 
 .btn {
-    background-color: #6e8efb;
-    color: white;
+    background-color: rgb(110, 142, 251);
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     font-size: 18px;
     border: none;
@@ -202,5 +203,5 @@ footer p {
 }
 
 .btn:hover {
-    background-color: #5a74e8;
+    background-color: rgb(90, 116, 232);
 }

@@ -3,34 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <title>Weather App (No API)</title>
-  <link rel="stylesheet" href="/css/dataExport.css" />
+  <link rel="stylesheet" href="../../asset/css/dataExport.css" />
 </head>
 <body>
 
-<h1>Weather App</h1>
+
+<h2 style="text-align:center;">🌦️ Weather App </h2>
 
 <div class="box">
-  <input type="text" id="cityInput" placeholder="Enter city" />
-  <button onclick="getWeather()">Get Weather</button>
+  <input type="text" id="cityInput" placeholder="Enter city name" />
+  <button onclick="getWeatherByCity()">Get Weather</button>
   <button onclick="getWeatherByLocation()">Use Current Location</button>
   <div id="weatherData"></div>
 </div>
 
 <div class="box">
-  <h2>Export Weather Report</h2>
-  <label>Start Date:</label>
+  <h3>📥 Export Forecast</h3>
+  <label for="startDate">Select Date:</label>
   <input type="date" id="startDate" />
-  <label>End Date:</label>
-  <input type="date" id="endDate" />
-  <label>Format:</label>
+  <label for="format">Select Format:</label>
   <select id="format">
     <option value="csv">CSV</option>
     <option value="pdf">PDF</option>
   </select>
-  <button onclick="exportData()">Download</button>
+  <button onclick="downloadData()">Download</button>
 </div>
 
-<script src="/js/dataExport.js"></script>
+<script src="../../asset/js/dataExport.js"></script>
 
 </body>
 </html>
