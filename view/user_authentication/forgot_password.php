@@ -1,18 +1,10 @@
-<?php
-session_start();
-
-if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
-    header("Location: ../user_authentication/login.php");
-    exit;
-  }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot Password</title>
-    <link rel="stylesheet" href="../../css/forgot_pass.css">
+    <link rel="stylesheet" href="../../asset/css/forgot_pass.css">
 </head>
 <body>
     <div class="f_pass_container">
@@ -28,6 +20,6 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
         </form>
     </div>
 
-    <script src="../../js/forgotpass_validation.js"></script>
+    <script src="../../asset/js/forgotpass_validation.js"></script>
 </body>
 </html>

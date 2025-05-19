@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to right, #ffffff, #89bbdf); /* Gradient background */
+    background: linear-gradient(to right, #ffffff, #2b6670);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +40,7 @@ input[type="email"] {
 }
 
 input[type="email"]:focus {
-    border-color: #007BFF;
+    border-color: #1b5850;
     outline: none;
 }
 
@@ -48,14 +48,14 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #9bbfe5;
+    background-color: #53d8cf;
     color: white;
     cursor: pointer;
     width: 100%;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #256967;
 }
 
 p {
@@ -64,7 +64,7 @@ p {
 }
 
 a {
-    color: #007BFF;
+    color: #1e6158;
     text-decoration: none;
 }
 

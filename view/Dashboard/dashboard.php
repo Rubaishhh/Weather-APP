@@ -18,21 +18,25 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
 </head>
 <body>
     <div class="container">
+      
+        <button onclick="window.location.href='../../controller/logout.php'" class="logout">
+          Logout
+        </button>
         <button onclick="window.location.href='../profile_management/profile_management.php'" class="profileMGT">
           Your Profile
         </button>
 
         <!--for the location, date and time, search box-->
         <div class="top-section">
-          <div class="location">
-            <h1 id="city_name">City</h1>
-            <p id="date_time">Date | Time</p>
-          </div>
+              <div class="location">
+                <h1 id="city_name">City</h1>
+                <p id="date_time">Date | Time</p>
+              </div>
 
-          <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Enter city name" />
-            <button onclick="searchCity()">Search</button>
-          </div>
+              <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Enter city name" />
+                <button onclick="searchCity()">Search</button>
+              </div>
 
         </div>
         <div class="main-weather">
@@ -49,7 +53,7 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
             </ul>
           </div>
         </div>
-<!-- Summary Widgets -->
+<!--details in widg-->
 <div class="summary-widgets">
     <div class="widget-card clickable" onclick="toggleTemp()">
       <h3>🌡 Temp</h3>
@@ -79,7 +83,7 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
                 <div class="forecast-card" id="day5"></div>
             </div>
         </section>
-      </div>
+</div>
     
       <script src="../../asset/js/dashboard.js"></script>
 </body>

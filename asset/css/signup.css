@@ -1,22 +1,21 @@
 body {
-    background: linear-gradient(to right, #ffffff, #89bbdf); /* Gradient background */
+    background: linear-gradient(to right, #dbe4e5, #3d6f72);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: Arial, sans-serif;
     min-height: 100vh;
 }
-
 form {
     background: #ffffff;
     padding: 30px 40px;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     width: 100%;
-    max-width: 500px;
+    max-width: 650px;
 }
-
 h2 {
+    scale: 1.3;
     text-align: center;
     margin-bottom: 20px;
     color: #333;
@@ -40,7 +39,6 @@ select {
     margin-bottom: 15px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    transition: border 0.3s;
 }
 
 input:focus,
@@ -67,32 +65,35 @@ button {
     margin: 8px 5px;
     border: none;
     border-radius: 5px;
-    background-color: #9bbfe5;
-    color: white;
     cursor: pointer;
 }
 .buttons{
     display: flex;
     justify-content: center;
     margin: 10px;
-    gap: 15px;
+    gap: 35px;
+}
+button#submit {
+    background: linear-gradient(to right, #2c3e50, #4ca1af); 
+    color: white;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
 
 button#reset {
-    background-color: #6c757d;
+    background: linear-gradient(to right, #2c3e50, #4ca1af); 
+    color: white;
+}
+button#cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+button#submit:hover {
+    background: linear-gradient(to right, #4ca1af, #2c3e50);
 }
 
 button#reset:hover {
-    background-color: #5a6268;
-}
-
-button#cancel {
-    background-color: #dc3545;
-}
+ background: linear-gradient(to right, #4ca1af, #2c3e50)}
 
 button#cancel:hover {
     background-color: #bd2130;
@@ -104,7 +105,7 @@ p {
 }
 
 a {
-    color: #007BFF;
+    color: #2c3e50;
     text-decoration: none;
 }
 a:hover {

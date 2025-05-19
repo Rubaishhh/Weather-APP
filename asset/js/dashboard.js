@@ -17,9 +17,8 @@ function fetchWeather(cityName) {
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
+      // console.log(data);
       showCurrent(data);
-      localStorage.setItem("lastCity", cityName);
     })
 }
 
@@ -42,7 +41,7 @@ function showCurrent(data) {
   document.getElementById("w-temp").innerText = `${tempCelsius.toFixed(1)}°C`;
  
   document.getElementById("temperature").innerText = `${tempCelsius.toFixed(1)}°C`;
-  console.log(`Temparature: ${tempCelsius.toFixed(1)}°C`);
+  // console.log(`Temparature: ${tempCelsius.toFixed(1)}°C`);
   document.getElementById("humidity").innerText = `Humidity: ${humidity}%`;
   document.getElementById("w-humidity").innerText = `${humidity}%`;
   document.getElementById("wind").innerText = `Wind Speed: ${windSpeedKph.toFixed(1)} km/h`;
@@ -113,5 +112,5 @@ document.getElementById("searchInput").addEventListener("keydown", function (eve
   }
 });
 
-let city = localStorage.getItem("lastCity") || "Dhaka";
+let city = "Mirpur";
 fetchWeather(city);

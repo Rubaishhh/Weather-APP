@@ -14,8 +14,8 @@ if(isset($_GET['error']) && $_GET['error'] === 'username_exists'){
     <link rel="stylesheet" href="../../asset/css/signup.css">
 </head>
 <body>
-    <form id="signupForm" action="../../controller/sign_up_handler.php" method="POST" onsubmit="return validate_signup()">
-    <h2>Sign up</h2>
+    <form id="signupForm" action="../../controller/sign_up_handler.php" method="POST" enctype="multipart/form-data" onsubmit="return validate_signup()">
+    <h2><u>Sign up</u></h2>
     <label for="username"> User name :</label>
     <input type="text" id="username" name="username" required><br><br>
 
@@ -24,6 +24,9 @@ if(isset($_GET['error']) && $_GET['error'] === 'username_exists'){
 
     <label for="email">Email :</label>
     <input type="email" id="email" name="email" required><br><br>
+
+    <label for="profile_image">Profile Image:</label>
+    <input type="file" id="profile_image" name="profile_image" accept="image/*" required><br><br>
     
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required><br><br>
@@ -66,9 +69,9 @@ if(isset($_GET['error']) && $_GET['error'] === 'username_exists'){
 
 <p>Already have an account? <a href="../user_authentication/login.php">Login here</a></p>
 <div class="buttons">
-    <button type="submit" id="submit">Sign up</button>
-    <button type="reset" id="reset">Reset</button>
     <button type="button" id="cancel">Cancel</button><br><br>
+    <button type="reset" id="reset">Reset</button>
+    <button type="submit" id="submit">Sign up</button>
 </div>
 </form>
 <script src="../../asset/js/validate_signup.js"></script>

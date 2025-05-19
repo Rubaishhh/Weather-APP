@@ -22,7 +22,7 @@ function login_user($username, $password){
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SIGN UP~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function sign_up($uname, $fname,$email, $hashedPassword, $phone, $dob, $gender, $address, $country){
+function sign_up($uname, $fname,$email, $pass, $phone, $dob, $gender, $address, $country, $imgName){
 
     $con = getConnection();
 
@@ -34,8 +34,8 @@ function sign_up($uname, $fname,$email, $hashedPassword, $phone, $dob, $gender, 
     }
 
 
-   $sql = "INSERT INTO user_info (uname, fname, email, password, phone, dob, gender, address, country)
-            VALUES ('$uname', '$fname', '$email', '$hashedPassword', '$phone', '$dob', '$gender', '$address', '$country')";
+   $sql = "INSERT INTO user_info (uname, fname, email, password, phone, dob, gender, address, country, img_name )
+            VALUES ('$uname', '$fname', '$email', '$pass', '$phone', '$dob', '$gender', '$address', '$country', '$imgName')";
     $result = mysqli_query($con, $sql);
 
     if($result){

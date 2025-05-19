@@ -25,7 +25,7 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
         <h1>My Profile</h1>
         <div class="picture">
             <label for="picture_up">
-                <img src="/view/profile_management/no_profile_pic.png" alt="Profile picture">
+                <img src="../../asset/images and icons/no_profile_pic.png" alt="Profile picture">
             </label>
             <!-- <input type="file" name="picture_up" id="picture_up" style="display: none"> -->
             

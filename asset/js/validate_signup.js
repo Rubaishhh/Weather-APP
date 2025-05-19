@@ -35,6 +35,11 @@ function validate_signup() {
         alert("Please enter a valid email address.");
         return;
     }
+    let profilePic = document.getElementById("profile_image").files[0];
+if (!profilePic) {
+    alert("Please upload a profile picture.");
+    return false;
+}
     // console.log("Username:", username);
     // console.log("Fullname:", fullname);
     // console.log("Email:", email);
