@@ -1,4 +1,20 @@
-<!DOCTYPE html>
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../user_authentication/login.php");
+    exit();
+}
+$cityError = "";
+$city = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $city = trim($_POST["city"]);
+  if (empty($city)) {
+    $cityError = "City name is required.";
+  }
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,8 +25,13 @@
 <body>
   <h2>Sunrise/Sunset</h2>
 
-<input type="text" id="cityName" placeholder="Enter city name" />
-<button id="fetchWeatherBtn">Fetch Weather</button>
+ <div class="controls">
+    <form method="POST" action="">
+      <input type="text" name="city" id="cityName" placeholder="Enter city name" value="<?php echo htmlspecialchars($city); ?>">
+      <button id="fetchWeatherBtn">Fetch Weather</button>
+      <div class="error"><?php echo $cityError; ?></div>
+    </form>
+  </div>
 
 
 <div id="tabs" style="margin-top: 20px;">
