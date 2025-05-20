@@ -7,7 +7,6 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
   }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,11 +55,11 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
 <!--details in widg-->
 <div class="summary-widgets">
     <div class="widget-card clickable" onclick="toggleTemp()">
-      <h3>🌡 Temp</h3>
+      <h3>Temparature</h3>
       <p id="w-temp">--°C</p>
     </div>
     <div class="widget-card clickable" onclick="toggleWind()">
-      <h3>Wind</h3>
+      <h3>Wind speed</h3>
       <p id="w-wind">-- km/h</p>
     </div>
     <div class="widget-card clickable" onclick="togglePressure()">
@@ -68,7 +67,7 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
       <p id="w-pressure">-- mb</p>
     </div>
     <div class="widget-card">
-      <h3>💧 Humidity</h3>
+      <h3>Humidity</h3>
       <p id="w-humidity">--%</p>
     </div>
   </div>
