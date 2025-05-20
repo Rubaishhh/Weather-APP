@@ -40,14 +40,5 @@ if (!profilePic) {
     alert("Please upload a profile picture.");
     return false;
 }
-    // console.log("Username:", username);
-    // console.log("Fullname:", fullname);
-    // console.log("Email:", email);
-    // console.log("Phone:", phone);
-    // console.log("DOB:", dob);
-    // console.log("Gender:", gender.value);
-    // console.log("Address:", address);
-    // console.log("Country:", country);
-    // console.log(document.getElementById("signupForm"));
     return true;
 }

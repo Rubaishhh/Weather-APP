@@ -20,6 +20,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //initially skipped, karon ekhono s
         header("Location: ../view/user_authentication/login.php");
         }       
         exit;
-    
 }
 ?>

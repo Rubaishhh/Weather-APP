@@ -30,7 +30,7 @@ body {
 }
 
 .image-section {
-    background: linear-gradient(to right, #f7f7f7, #278d9c); /* Sunset gradient */
+    background: linear-gradient(to right, #f7f7f7, #278d9c);
     width: 60%;
     display: flex;
     justify-content: center;
@@ -41,16 +41,12 @@ body {
 }
 
 .image-section img {
+    scale: 1.2;
     max-width: 70%;
     max-height: 70%;
-    scale: 1.9;
     filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
-    transition: transform 0.3s ease;
 }
 
-.image-section img:hover {
-    transform: scale(1.2);
-}
 
 form {
     width: 100%;
