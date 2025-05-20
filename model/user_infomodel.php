@@ -65,13 +65,13 @@ function getUserInfo($username){
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Profile Update~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function updateUserInfo($username, $fullname, $email, $phone, $gender, $address, $country, $img_name) {
-    $conn = getConnection(); 
+    $con = getConnection(); 
     $sql = "UPDATE user_info 
             SET fname = '$fullname', email = '$email', phone = '$phone', gender = '$gender', 
             address = '$address', country = '$country', img_name = '$img_name' 
         WHERE uname = '$username'";
 
-    $result = mysqli_querry($conn, $sql);
+    $result = mysqli_query($con, $sql);
     if (!$result) {
         return false;
     }

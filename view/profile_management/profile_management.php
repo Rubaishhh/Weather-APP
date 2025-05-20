@@ -26,12 +26,12 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
 <body>
     <div class="container">
         <h1>My Profile</h1>
-<form id="profile_form"    action="upProfile.php" method="POST" enctype="multipart/form-data">
+<form id="profile_form"    action="../../controller/upProfile.php" method="POST" enctype="multipart/form-data">
       <div class="profile_img_sec">
         <label for="picture_up">
           <img id="profilePreview" src="<?= $imgLocation ?>" alt="Profile Picture" />
         </label>
-        <input type="file" id="picture_up" name="profile_picture" accept="image/*" onchange="previewImage(event)">
+        <input type="file" id="picture_up" name="profile_picture" onchange="previewImage(event)">
       </div>
 
       <div class="form_grp">
@@ -72,7 +72,7 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
 
 
       <div class="form_btn">
-        <button type="button" onclick=" return saveProfile()">Save</button> 
+        <button type="submit" onclick=" return saveProfile()">Save</button> 
         <!-- return saveProfile() ensures JS validation runs first; if validation fails, submission is cancelled. -->
         <button type="reset">Reset</button>
       </div>

@@ -17,16 +17,17 @@ function saveProfile(){
     const gender = document.querySelector('input[name="gender"]:checked');
 
     if (!fullname || !email || !phone || !address || !country || !gender) {
-        alert("Please fill in all fields.");
-        return;
+        alert("Please fill in all fields(JS).");
+        return false;
       }
     
     if (phone.length !== 11 || isNaN(Number(phone))) {
-            alert("Phone number must be 11 digits.");
-            return;
+            alert("Phone number must be 11 digits.(JS)");
+            return false;
     }
     
-      alert("Profile saved successfully!");
-          document.getElementById('profile_form').submit();
+    return true;
+      // alert("Profile saved successfully!");
+      //     document.getElementById('profile_form').submit();
 
 }

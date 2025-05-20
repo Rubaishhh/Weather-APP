@@ -4,7 +4,7 @@ require_once('../model/db.php');
 require_once('../model/user_infomodel.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
+    print_r($_POST);
     $uname = trim($_POST['username'] ?? '');
     $fname = trim($_POST['fullname'] ?? '');
     $email = trim($_POST['email'] ?? '');
