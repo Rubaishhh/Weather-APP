@@ -1,10 +1,11 @@
 <?php
 session_start();
-
-if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
-    header("Location: ../user_authentication/login.php");
+if(!isset($_COOKIE['status']) || !isset($_SESSION['username'])) {
+     header("Location: ../user_authentication/login.php");
     exit;
   }
+  $username = $_SESSION['username'];
+  //$uid = $_SESSION['uid'];
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,7 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
 </head>
 <body>
     <div class="container">
-      
+        <h1 id="welcome">Welcome, <?php echo $username; ?>!</h1>
         <button onclick="window.location.href='../../controller/logout.php'" class="logout">
           Logout
         </button>
@@ -75,13 +76,25 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
         <section id="forecast">
             <h2>5 Day Forecast</h2>
             <div class="forecast">
-                <div class="forecast-card" id="day1"></div>
-                <div class="forecast-card" id="day2"></div>
-                <div class="forecast-card" id="day3"></div>
-                <div class="forecast-card" id="day4"></div>
-                <div class="forecast-card" id="day5"></div>
+                <div class="forecast-card clickable" id="day1" onclick="showForecastModal(1)"></div>
+                <div class="forecast-card clickable" id="day2" onclick="showForecastModal(2)"></div>
+                <div class="forecast-card clickable" id="day3" onclick="showForecastModal(3)"></div>
+                <div class="forecast-card clickable" id="day4" onclick="showForecastModal(4)"></div>
+                <div class="forecast-card clickable" id="day5" onclick="showForecastModal(5)"></div>
             </div>
         </section>
+
+        <div id="forecast-modal" class="modal">
+    <div class="modal-content">
+        <h2 id="modal-date">Day</h2>
+        <img id="modal-icon" src="" alt="Weather Icon" />
+        <p id="modal-temp">Temperature: --°C</p>
+        <p id="modal-description">Description: --</p>
+        <p id="modal-humidity">Humidity: --%</p>
+        <p id="modal-wind">Wind: -- km/h</p>
+        <p id="modal-pressure">Pressure: -- mb</p>
+    </div>
+</div>
 </div>
     
       <script src="../../asset/js/dashboard.js"></script>

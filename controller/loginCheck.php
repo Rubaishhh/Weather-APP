@@ -11,9 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //initially skipped, karon ekhono s
     $password = trim($_POST['password'] ?? '');
 
         $user = login_user($username, $password);
+       
+
         if($user){
             $_SESSION['username'] = $user['uname'];
+            $_SESSION['uid']= $user['uid'];
             setcookie("status", 'true', time()+3000, "/");
+            setcookie("username", $user['uname'], time()+3000, "/");
             header("Location: ../view/Dashboard/dashboard.php");
         }else {
         $error_message = "Invalid username or password!";

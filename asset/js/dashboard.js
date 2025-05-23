@@ -41,7 +41,75 @@ function fetchWeather(cityName) {
         document.getElementById("feels-like").innerText = "";
         document.getElementById("weather-icon").src = "";
       }
+};
+// Add 5-day forecast fetch
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
+    const forecastXhttp = new XMLHttpRequest();
+    forecastXhttp.open("GET", forecastUrl, true);
+    forecastXhttp.send();
+    forecastXhttp.onreadystatechange = function () {
+        if (forecastXhttp.readyState === 4 && forecastXhttp.status === 200) {
+            const data = JSON.parse(forecastXhttp.responseText);
+            displayForecast(data);
+        }
+    };
 }
+
+let forecastData = []; // Store forecast data globally for modal
+
+function displayForecast(data) {
+    forecastData = [];
+    // console.log("Forecast API response:", data);
+    const dailyData = data.list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 5);
+    // console.log("Filtered daily data:", dailyData);
+
+    dailyData.forEach((item, index) => {
+        const date = new Date(item.dt * 1000);
+        if (isNaN(date)) {
+            console.error("Invalid date for item:", item);
+            return;
+        }
+        const temp = item.main.temp;
+        const description = item.weather[0].description;
+        const icon = item.weather[0].icon;
+        const humidity = item.main.humidity;
+        const wind = item.wind.speed * 3.6;
+        const pressure = item.main.pressure;
+
+        forecastData[index] = { date, temp, description, icon, humidity, wind, pressure };
+
+        const card = document.getElementById(`day${index + 1}`);
+        if (card) {
+            card.innerHTML = `
+                <h4>${date.toDateString()}</h4>
+                <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="icon">
+                <p>${temp.toFixed(1)}°C</p>
+                <p>${description}</p>
+            `;
+        }
+    });
+}
+document.getElementById("forecast-modal").addEventListener("click", function (event) {
+    if (event.target === this) {
+        this.style.display = "none";
+    }
+});
+
+function showForecastModal(index) {
+    const modal = document.getElementById("forecast-modal");
+    const data = forecastData[index];
+if (!data || !(data.date instanceof Date) || isNaN(data.date)) {
+        console.error("Invalid or missing forecast data for index:", index);
+        alert("Forecast data not available for this day.");
+        return;
+    }    document.getElementById("modal-date").innerText = data.date.toDateString();
+    document.getElementById("modal-icon").src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;
+    document.getElementById("modal-temp").innerText = `Temperature: ${data.temp.toFixed(1)}°C`;
+    document.getElementById("modal-description").innerText = `Description: ${data.description}`;
+    document.getElementById("modal-humidity").innerText = `Humidity: ${data.humidity}%`;
+    document.getElementById("modal-wind").innerText = `Wind: ${data.wind.toFixed(1)} km/h`;
+    document.getElementById("modal-pressure").innerText = `Pressure: ${data.pressure} mb`;
+    modal.style.display = "flex";
 }
 
 function showCurrent(data) {
@@ -73,6 +141,7 @@ function showCurrent(data) {
   document.getElementById("feels-like").innerText = `Feels Like: ${feelsLike}°C`;
   document.getElementById("w-pressure").innerText = `${pressureMb} mb`;
 }
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DB SAVING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function saveToDatabase(data) {
   alert("Saving to DB");
   const parsed = JSON.parse(data);
@@ -84,7 +153,8 @@ function saveToDatabase(data) {
     pressure: parsed.main.pressure,
     wind: parsed.wind.speed * 3.6 // convert m/s to km/h
   };
-  console.log("Sending to DB:", JSON.stringify(payload));
+  //console.log("Sending to DB:", JSON.stringify(payload));
+   alert(JSON.stringify(payload));
 
   const xhttp = new XMLHttpRequest();
   xhttp.open("POST", "../../model/currentWeatherModel.php", true);
