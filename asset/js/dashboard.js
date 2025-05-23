@@ -12,14 +12,36 @@ let isMb = true;
 
 
 function fetchWeather(cityName) {
+  alert("in fetchWeather");
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
 
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      // console.log(data);
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("GET", url, true); //jehetu kichu pathachi na just getting the data, so get and true for asynch
+  xhttp.send();
+
+  xhttp.onreadystatechange = function () {
+    if(xhttp.readyState === 4 && xhttp.status === 200){
+      const data = JSON.parse(xhttp.responseText);
+      alert("done parsing");
+      saveToDatabase(xhttp.responseText);
       showCurrent(data);
-    })
+      
+      
+  }     
+  else {
+        document.getElementById("city_name").innerText = "City not found!";
+        document.getElementById("temperature").innerText = "";
+        document.getElementById("humidity").innerText = "";
+        document.getElementById("wind").innerText = "";
+        document.getElementById("weather-description").innerText = "";
+        document.getElementById("w-temp").innerText = "";
+        document.getElementById("w-wind").innerText = "";
+        document.getElementById("w-humidity").innerText = "";
+        document.getElementById("w-pressure").innerText = "";
+        document.getElementById("feels-like").innerText = "";
+        document.getElementById("weather-icon").src = "";
+      }
+}
 }
 
 function showCurrent(data) {
@@ -51,6 +73,26 @@ function showCurrent(data) {
   document.getElementById("feels-like").innerText = `Feels Like: ${feelsLike}°C`;
   document.getElementById("w-pressure").innerText = `${pressureMb} mb`;
 }
+function saveToDatabase(data) {
+  alert("Saving to DB");
+  const parsed = JSON.parse(data);
+
+  const payload = {
+    city: parsed.name,
+    temp: parsed.main.temp,
+    humidity: parsed.main.humidity,
+    pressure: parsed.main.pressure,
+    wind: parsed.wind.speed * 3.6 // convert m/s to km/h
+  };
+  console.log("Sending to DB:", JSON.stringify(payload));
+
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "../../model/currentWeatherModel.php", true);
+  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  xhttp.send("json=" + encodeURIComponent(JSON.stringify(payload)));
+}
+
 
 function toggleTemp(){
   if(tempCelsius===null)
