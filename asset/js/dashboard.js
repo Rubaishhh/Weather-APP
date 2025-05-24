@@ -119,13 +119,6 @@ function displayForecast(data) {
     });
 }
 
-document.getElementById("forecast-modal").addEventListener("click", function (event) {
-    if (event.target === this) {
-        this.style.display = "none";
-    }
-});
-
-
 function showCurrent(data) {
   const cityName = data.name;
   const date = new Date();
@@ -238,5 +231,6 @@ document.getElementById("searchInput").addEventListener("keydown", function (eve
   }
 });
 
-let city = "Mirpur";
+let city = "Mirpur"; //pore ekhane oi last searched city ta thakbe
+
 fetchWeather(city);

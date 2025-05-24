@@ -1,10 +1,15 @@
 <?php
 session_start();
+require_once("../../model/db.php");
+require_once("../../model/weatherHistory.php");
+
+
 if(!isset($_COOKIE['status']) || !isset($_SESSION['username'])) {
      header("Location: ../user_authentication/login.php");
     exit;
   }
   $username = $_SESSION['username'];
+  $city = getLastSearchedCity($username);
   //$uid = $_SESSION['uid'];
 ?>
 
@@ -18,6 +23,11 @@ if(!isset($_COOKIE['status']) || !isset($_SESSION['username'])) {
 </head>
 <body>
     <div class="container">
+        <div class="history-logo-button">
+            <a href="../saved_location/saved_location.php">
+                <img src="../../asset/images and icons/history_icon.png" alt="History Logo" class="history-logo">
+            </a>
+        </div>
         <h1 id="welcome">Welcome, <?php echo $username; ?>!</h1>
         <button onclick="window.location.href='../../controller/logout.php'" class="logout">
           Logout
@@ -83,18 +93,6 @@ if(!isset($_COOKIE['status']) || !isset($_SESSION['username'])) {
                 <div class="forecast-card clickable" id="day5"></div>
             </div>
         </section>
-
-    <div id="forecast-modal" class="modal">
-      <div class="modal-content">
-        <h2 id="modal-date">Day</h2>
-        <img id="modal-icon" src="" alt="Weather Icon" />
-        <p id="modal-temp">Temperature: --°C</p>
-        <p id="modal-description">Description: --</p>
-        <p id="modal-humidity">Humidity: --%</p>
-        <p id="modal-wind">Wind: -- km/h</p>
-        <p id="modal-pressure">Pressure: -- mb</p>
-      </div>
-    </div>
 </div>
     
       <script src="../../asset/js/dashboard.js"></script>

@@ -1,66 +1,81 @@
-body{
- font-family: Arial,sans-serif; 
- background-color:bisque;  
- padding: 30px;
+/* Center the container */
+.container {
+    position: relative;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
-.container{
-    max-width: 500px;
-    background-color: aliceblue;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+/* Style the history table */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-h1{
-    text-align: center;
-    margin-bottom: 20px;
+
+/* Table headers */
+.history-table th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
 }
-.input_section{
-    display: flex;
-    align-items: center;/*vertivcally item alignment*/
-    gap: 10px; /*button r input er modher space*/
-    margin-bottom: 10px;
-}
-input{
+
+/* Table cells */
+.history-table td {
     padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: burlywood;
-    color: black;
-}
-#add_btn{
-    border: 0;
-    background: none;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    cursor: pointer;    
-}
-#add_btn img{
-    width: 30px;
-    height: 30px;
+    border-bottom: 1px solid #ddd;
 }
 
-button{
-    cursor: pointer;
-}
-ul{
-    list-style: square;
-    padding: 0;
-}
-li{
-    background: rgba(255,255,255,0.2);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    border-radius: 5px;
-}
-.city-name:hover{
-    color: blueviolet;
-}
-.actions button{
-    margin-left: 5px;
-    background-color: brown;
-    color: black;
+/* Alternating row colors for readability */
+.history-table tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
+/* Hover effect for rows */
+.history-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+/* Center text in specific columns for better alignment */
+.history-table td:nth-child(2),
+.history-table td:nth-child(3),
+.history-table td:nth-child(4),
+.history-table td:nth-child(5) {
+    text-align: center;
+}
+
+/* Style for empty table message */
+.history-table td[colspan="6"] {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .history-table th,
+    .history-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    /* Stack table for very small screens */
+    .history-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

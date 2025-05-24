@@ -9,6 +9,7 @@ $error_message = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") { //initially skipped, karon ekhono submit kori e nai
     $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
+    $remember = isset($_POST['remember']);
 
         $user = login_user($username, $password);
        
@@ -16,12 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //initially skipped, karon ekhono s
         if($user){
             $_SESSION['username'] = $user['uname'];
             $_SESSION['uid']= $user['uid'];
-            setcookie("status", 'true', time()+3000, "/");
-            setcookie("username", $user['uname'], time()+3000, "/");
+
+            $cookie_duration = $remember ? (time() + (86400 * 30)) : (time() + 3600); // 30 days or 1 hour
+            setcookie("status", "true", $cookie_duration, "/");
+            setcookie("username", $username, $cookie_duration, "/");
             header("Location: ../view/Dashboard/dashboard.php");
         }else {
         $error_message = "Invalid username or password!";
-        header("Location: ../view/user_authentication/login.php");
+        header("Location: ../view/user_authentication/login.php?error=" .$error_message);
         }       
         exit;
 }

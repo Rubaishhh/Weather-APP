@@ -16,6 +16,20 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     animation: fadeIn 1s ease-in;
 }
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 20px;
+  font-size: 14px;
+  color: #eee;
+}
+
+.remember-me input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #2980b9; 
+  cursor: pointer;
+}
 
 .form-section {
     background: linear-gradient(145deg, #ffffff, #f7f7f7); /* Subtle gradient for depth */
@@ -28,6 +42,7 @@ body {
     border-bottom-left-radius: 20px;
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05); 
 }
+
 
 .image-section {
     background: linear-gradient(to right, #f7f7f7, #278d9c);

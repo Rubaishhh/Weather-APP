@@ -1,3 +1,11 @@
+<?php
+$error_message = $_GET['error'] ?? '';
+if (isset($_COOKIE['status']) && $_COOKIE['status'] === 'true') {
+    header("Location: ../Dashboard/dashboard.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +29,11 @@
 
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password"><br><br>
+                
+                <div class="remember-me">
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Remember Me</label>
+                </div>
 
                 <p><a href="../user_authentication/forgot_password.php">Forgot Password?</a></p>
 
