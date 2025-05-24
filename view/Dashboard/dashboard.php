@@ -76,16 +76,16 @@ if(!isset($_COOKIE['status']) || !isset($_SESSION['username'])) {
         <section id="forecast">
             <h2>5 Day Forecast</h2>
             <div class="forecast">
-                <div class="forecast-card clickable" id="day1" onclick="showForecastModal(1)"></div>
-                <div class="forecast-card clickable" id="day2" onclick="showForecastModal(2)"></div>
-                <div class="forecast-card clickable" id="day3" onclick="showForecastModal(3)"></div>
-                <div class="forecast-card clickable" id="day4" onclick="showForecastModal(4)"></div>
-                <div class="forecast-card clickable" id="day5" onclick="showForecastModal(5)"></div>
+                <div class="forecast-card clickable" id="day1"></div>
+                <div class="forecast-card clickable" id="day2"></div>
+                <div class="forecast-card clickable" id="day3"></div>
+                <div class="forecast-card clickable" id="day4"></div>
+                <div class="forecast-card clickable" id="day5"></div>
             </div>
         </section>
 
-        <div id="forecast-modal" class="modal">
-    <div class="modal-content">
+    <div id="forecast-modal" class="modal">
+      <div class="modal-content">
         <h2 id="modal-date">Day</h2>
         <img id="modal-icon" src="" alt="Weather Icon" />
         <p id="modal-temp">Temperature: --°C</p>
@@ -93,8 +93,8 @@ if(!isset($_COOKIE['status']) || !isset($_SESSION['username'])) {
         <p id="modal-humidity">Humidity: --%</p>
         <p id="modal-wind">Wind: -- km/h</p>
         <p id="modal-pressure">Pressure: -- mb</p>
+      </div>
     </div>
-</div>
 </div>
     
       <script src="../../asset/js/dashboard.js"></script>

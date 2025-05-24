@@ -181,29 +181,3 @@ body {
     transform: scale(1.05);
     background: rgba(255, 255, 255, 0.2);
 }
-
-#forecast {
-    margin-top: 30px;
-}
-
-.forecast {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.forecast-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    flex: 1;
-    min-width: 120px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
-.forecast-card:hover {
-    background-color: #e9ecef;
-}
-

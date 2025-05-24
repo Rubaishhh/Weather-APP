@@ -59,58 +59,72 @@ let forecastData = []; // Store forecast data globally for modal
 
 function displayForecast(data) {
     forecastData = [];
-    // console.log("Forecast API response:", data);
+
+    const cityName = data.city.name; // Get city from forecast API
     const dailyData = data.list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 5);
-    // console.log("Filtered daily data:", dailyData);
 
     dailyData.forEach((item, index) => {
         const date = new Date(item.dt * 1000);
-        if (isNaN(date)) {
-            console.error("Invalid date for item:", item);
-            return;
-        }
-        const temp = item.main.temp;
-        const description = item.weather[0].description;
-        const icon = item.weather[0].icon;
+        const tempCelsius = item.main.temp;
+        const feelsLike = item.main.feels_like;
         const humidity = item.main.humidity;
-        const wind = item.wind.speed * 3.6;
-        const pressure = item.main.pressure;
+        const pressureMb = item.main.pressure;
+        const windSpeedKph = item.wind.speed * 3.6;
+        const description = item.weather[0].description;
+        const iconCode = item.weather[0].icon;
 
-        forecastData[index] = { date, temp, description, icon, humidity, wind, pressure };
+        forecastData[index] = {
+            city: cityName,
+            date: date.toDateString(),
+            tempCelsius,
+            feelsLike,
+            humidity,
+            pressureMb,
+            windSpeedKph,
+            description,
+            iconCode
+        };
 
         const card = document.getElementById(`day${index + 1}`);
         if (card) {
             card.innerHTML = `
-                <h4>${date.toDateString()}</h4>
-                <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="icon">
-                <p>${temp.toFixed(1)}°C</p>
-                <p>${description}</p>
+                <div class="clickable-card" data-index="${index}">
+                    <h4>${date.toDateString()}</h4>
+                    <img src="https://openweathermap.org/img/wn/${iconCode}@2x.png" alt="icon">
+                    <p>${tempCelsius.toFixed(1)}°C</p>
+                    <p>${description}</p>
+                </div>
             `;
         }
     });
+
+    // Attach click handler to send selectedData to PHP
+    document.querySelectorAll('.clickable-card').forEach(el => {
+        el.addEventListener('click', function () {
+            const index = this.getAttribute('data-index');
+            const selectedData = forecastData[index];
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "../../model/save_day_data.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    window.location.href = "../../view/Dashboard/eachDay.php";
+                }
+            };
+
+            xhr.send("selectedData=" + encodeURIComponent(JSON.stringify(selectedData)));
+        });
+    });
 }
+
 document.getElementById("forecast-modal").addEventListener("click", function (event) {
     if (event.target === this) {
         this.style.display = "none";
     }
 });
 
-function showForecastModal(index) {
-    const modal = document.getElementById("forecast-modal");
-    const data = forecastData[index];
-if (!data || !(data.date instanceof Date) || isNaN(data.date)) {
-        console.error("Invalid or missing forecast data for index:", index);
-        alert("Forecast data not available for this day.");
-        return;
-    }    document.getElementById("modal-date").innerText = data.date.toDateString();
-    document.getElementById("modal-icon").src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;
-    document.getElementById("modal-temp").innerText = `Temperature: ${data.temp.toFixed(1)}°C`;
-    document.getElementById("modal-description").innerText = `Description: ${data.description}`;
-    document.getElementById("modal-humidity").innerText = `Humidity: ${data.humidity}%`;
-    document.getElementById("modal-wind").innerText = `Wind: ${data.wind.toFixed(1)} km/h`;
-    document.getElementById("modal-pressure").innerText = `Pressure: ${data.pressure} mb`;
-    modal.style.display = "flex";
-}
 
 function showCurrent(data) {
   const cityName = data.name;
