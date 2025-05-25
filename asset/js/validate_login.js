@@ -6,6 +6,5 @@ function validateForm() {
         alert("Both fields are required. Please fill in the username and password.");
         return false;
     }
-    window.location.href = "/Weather-APP/view/Dashboard/dashboard.php";
-    return false; 
+    return true; 
 }

@@ -1,17 +1,13 @@
 <?php
 session_start();
 if (!isset($_SESSION['uid'])) {
-    die("User ID not set in session");
+    header("Location: ../view/user_authentication/login.php");
+    exit();
 }
 $uid = $_SESSION['uid'];
 require_once('db.php');
 
 $con = getConnection();
-
-if ($con->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 
 // $city = $_POST['city'];
 // $temp = $_POST['temp'];
@@ -19,11 +15,12 @@ if ($con->connect_error) {
 // $pressure = $_POST['pressure'];
 // $wind = $_POST['wind'];
 $jsonData = $_POST['json'];
-$info = json_decode($jsonData);
+$info = json_decode($jsonData);//making php obj
 
 
 if (!isset($info->city, $info->temp, $info->humidity, $info->pressure, $info->wind)) {
-    die("Missing fields in JSON data");
+    header("Location: ../view/user_authentication/login.php");
+    exit();
 }
 
 $city = $info->city;
@@ -35,7 +32,7 @@ $wind = $info->wind;
 
 $sql = "INSERT INTO weather_logs (uid ,city, temperature, humidity, pressure, wind_speed, timestamp) 
         VALUES ('$uid','$city', '$temp', '$humidity', '$pressure', '$wind', NOW())";
-        echo "<script>alert(\"SQL Query: $sql\");</script>";
+        //echo "<script>alert(\"SQL Query: $sql\");</script>";
 
 
  $result = mysqli_query($con, $sql);
@@ -45,5 +42,4 @@ if($result){
         echo "Error: " . $con->error;
     }
 
-$con->close();
 ?>

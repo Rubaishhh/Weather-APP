@@ -17,22 +17,18 @@ function getUserWeatherHistory($uid) {
         }
     }
 
-    mysqli_close($con);
     return $history;
 }
 function getLastSearchedCity($username) {
     $defaultCity = 'Dhaka';
+    $conn = getConnection();
 
-    $query = "SELECT city FROM userweatherview WHERE uname = ? ORDER BY timestamp DESC LIMIT 1";
-    $conn = getConnection(); // You should have a function that returns the DB connection
+    // Escape the username to prevent SQL injection (still very important!)
+    $username = mysqli_real_escape_string($conn, $username);
 
-    $stmt = mysqli_prepare($conn, $query);
-    if (!$stmt) return $defaultCity;
+    $query = "SELECT city FROM userweatherview WHERE uname = '$username' ORDER BY timestamp DESC LIMIT 1";
 
-    mysqli_stmt_bind_param($stmt, 's', $username);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-
+    $result = mysqli_query($conn, $query);
     if ($result && mysqli_num_rows($result) > 0) {
         $data = mysqli_fetch_assoc($result);
         if (!empty($data['city'])) {

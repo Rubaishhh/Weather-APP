@@ -4,14 +4,11 @@ function validate_signup() {
     let email = document.getElementById("email").value.trim();
     let password = document.getElementById("password").value.trim();
     let confirmpassword = document.getElementById("confirmpassword").value.trim();
-    let phone = document.getElementById("phone").value;
+    let phone = document.getElementById("phone").value.trim();
     let dob = document.getElementById("dob").value;
-    //not clear
     let gender = document.querySelector('input[name="gender"]:checked');
     let address = document.getElementById("address").value.trim();
     let country = document.getElementById("country").value;
-    const genderSelected = (gender !== null);
-    
     
 
     if (!username || !fullname || !email || !phone || !dob || !address || !country || !password || !confirmpassword) {
@@ -27,6 +24,7 @@ function validate_signup() {
         alert("Phone number should contain only digits.");
         return;
     }
+    const genderSelected = (gender !== null);
     if (!genderSelected) {
         alert("Please select a gender.");
         return;
@@ -35,7 +33,7 @@ function validate_signup() {
         alert("Please enter a valid email address.");
         return;
     }
-    let profilePic = document.getElementById("profile_image").files[0];
+    let profilePic = document.getElementById("profile_image").files[0];//file list obj er first element
 if (!profilePic) {
     alert("Please upload a profile picture.");
     return false;

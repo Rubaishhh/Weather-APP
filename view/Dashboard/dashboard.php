@@ -9,7 +9,7 @@ if(!isset($_COOKIE['status']) || !isset($_SESSION['username'])) {
     exit;
   }
   $username = $_SESSION['username'];
-  $city = getLastSearchedCity($username);
+  $city = getLastSearchedCity($username); //etake pore send korbo dashboard e (ajax)
   //$uid = $_SESSION['uid'];
 ?>
 

@@ -11,10 +11,10 @@ function login_user($username, $password){
     $con = getConnection();
 
     $sql = "select * from user_info where uname = '$username' and password = '$password'";
-    $result = mysqli_query($con, $sql);
+    $result = mysqli_query($con, $sql); //returns obj
 
     if($result && mysqli_num_rows($result)===1){
-        $user = mysqli_fetch_assoc($result);
+        $user = mysqli_fetch_assoc($result); //returns associative array
         return $user;
     }
 
@@ -29,6 +29,8 @@ function sign_up($uname, $fname,$email, $pass, $phone, $dob, $gender, $address, 
     $chk_username = "select * from user_info where uname = '$uname'";
     $chk_result = mysqli_query($con, $chk_username);
 
+
+    //will use Ajax here to check if username exists or not
     if(mysqli_num_rows($chk_result)>0){
         return "exists";
     }

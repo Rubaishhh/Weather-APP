@@ -12,18 +12,20 @@ let isMb = true;
 
 
 function fetchWeather(cityName) {
-  alert("in fetchWeather");
+  //alert("in fetchWeather");
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+  // It uses template literals (backticks ``) to insert cityName and apiKey variables dynamically into the URL string.
+  // units=metric means the temperature will be returned in Celsius.
 
   const xhttp = new XMLHttpRequest();
   xhttp.open("GET", url, true); //jehetu kichu pathachi na just getting the data, so get and true for asynch
   xhttp.send();
-
+// This assigns a callback function that will run whenever the readyState of the request changes.
   xhttp.onreadystatechange = function () {
     if(xhttp.readyState === 4 && xhttp.status === 200){
-      const data = JSON.parse(xhttp.responseText);
-      alert("done parsing");
-      saveToDatabase(xhttp.responseText);
+      const data = JSON.parse(xhttp.responseText); //obj banaitese
+      //alert("done parsing");
+      saveToDatabase(xhttp.responseText);//string ta dhore pathay ditesi
       showCurrent(data);
       
       
@@ -42,7 +44,6 @@ function fetchWeather(cityName) {
         document.getElementById("weather-icon").src = "";
       }
 };
-// Add 5-day forecast fetch
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
     const forecastXhttp = new XMLHttpRequest();
     forecastXhttp.open("GET", forecastUrl, true);
@@ -55,7 +56,7 @@ function fetchWeather(cityName) {
     };
 }
 
-let forecastData = []; // Store forecast data globally for modal
+let forecastData = []; // Store forecast data globally
 
 function displayForecast(data) {
     forecastData = [];
@@ -150,7 +151,7 @@ function showCurrent(data) {
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DB SAVING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function saveToDatabase(data) {
-  alert("Saving to DB");
+  //alert("Saving to DB");
   const parsed = JSON.parse(data);
 
   const payload = {
@@ -158,19 +159,19 @@ function saveToDatabase(data) {
     temp: parsed.main.temp,
     humidity: parsed.main.humidity,
     pressure: parsed.main.pressure,
-    wind: parsed.wind.speed * 3.6 // convert m/s to km/h
+    wind: parsed.wind.speed * 3.6 // converting m/s to km/h
   };
   //console.log("Sending to DB:", JSON.stringify(payload));
-   alert(JSON.stringify(payload));
+   //alert(JSON.stringify(payload));
 
   const xhttp = new XMLHttpRequest();
   xhttp.open("POST", "../../model/currentWeatherModel.php", true);
-  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");//post er jonne extra line ta dite hoy
 
-  xhttp.send("json=" + encodeURIComponent(JSON.stringify(payload)));
+  xhttp.send("json=" + JSON.stringify(payload));
 }
 
-
+//~~~~~~~~~~~~~~~~~~~~~~~~~Toogle Functions~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function toggleTemp(){
   if(tempCelsius===null)
       return;

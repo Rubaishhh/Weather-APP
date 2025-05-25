@@ -14,7 +14,7 @@ if(isset($_GET['error']) && $_GET['error'] === 'username_exists'){
     <link rel="stylesheet" href="../../asset/css/signup.css">
 </head>
 <body>
-    <form id="signupForm" action="../../controller/sign_up_handler.php" method="POST" enctype="multipart/form-data" >
+    <form id="signupForm" action="../../controller/sign_up_handler.php" method="POST" onsubmit="return validateForm()" enctype="multipart/form-data" >
     <img src="../../asset/images and icons/Skysence_logo.png" alt="SKYSENCE">
 
     <h2><u>Sign up</u></h2>
@@ -56,6 +56,7 @@ if(isset($_GET['error']) && $_GET['error'] === 'username_exists'){
     <input type="text" id="address" name="address" required><br><br>
     
     <label for="country">Select a country:</label>
+    <!-- have to change this lame approach -->
 <select id="country" name="country">
     <option value="">--Select a Country--</option>
     <option value="USA">United States</option>
@@ -66,14 +67,37 @@ if(isset($_GET['error']) && $_GET['error'] === 'username_exists'){
     <option value="Australia">Australia</option>
     <option value="Germany">Germany</option>
     <option value="France">France</option>
+    <option value="China">China</option>
+    <option value="Japan">Japan</option>
+    <option value="Russia">Russia</option>
+    <option value="Brazil">Brazil</option>
+    <option value="South Korea">South Korea</option>
+    <option value="Italy">Italy</option>
+    <option value="Spain">Spain</option>
+    <option value="Mexico">Mexico</option>
+    <option value="Netherlands">Netherlands</option>
+    <option value="Sweden">Sweden</option>
+    <option value="Switzerland">Switzerland</option>
+    <option value="Nepal">Nepal</option>
+    <option value="Pakistan">Pakistan</option>
+    <option value="Sri Lanka">Sri Lanka</option>
+    <option value="Malaysia">Malaysia</option>
+    <option value="Indonesia">Indonesia</option>
+    <option value="Philippines">Philippines</option>
+    <option value="New Zealand">New Zealand</option>
+    <option value="South Africa">South Africa</option>
+    <option value="Turkey">Turkey</option>
+    <option value="Saudi Arabia">Saudi Arabia</option>
+    <option value="UAE">United Arab Emirates</option>
 </select>
+
 <br>
 
 <p>Already have an account? <a href="../user_authentication/login.php">Login here</a></p>
 <div class="buttons">
     <button type="button" id="cancel">Cancel</button><br><br>
     <button type="reset" id="reset">Reset</button>
-    <button type="submit" id="submit" onsubmit="return validate_signup()">Sign up</button>
+    <button type="submit" id="submit">Sign up</button>
 </div>
 </form>
 <script src="../../asset/js/validate_signup.js"></script>

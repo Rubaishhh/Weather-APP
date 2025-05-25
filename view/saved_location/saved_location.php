@@ -35,24 +35,24 @@ $weatherHistory = getUserWeatherHistory($uid);
                     <th>Timestamp</th>
                 </tr>
             </thead>
-    <tbody>
-    <?php if (!empty($weatherHistory)): ?>
-        <?php foreach ($weatherHistory as $row): ?>
-            <tr>
-                <td><?= htmlspecialchars($row['city']) ?></td>
-                <td><?= htmlspecialchars($row['temperature']) ?></td>
-                <td><?= htmlspecialchars($row['humidity']) ?></td>
-                <td><?= htmlspecialchars($row['pressure']) ?></td>
-                <td><?= htmlspecialchars($row['wind_speed']) ?></td>
-                <td><?= htmlspecialchars($row['timestamp']) ?></td>
-            </tr>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <tr>
-            <td colspan="6">No search history found.</td>
-        </tr>
-    <?php endif; ?>
-</tbody>
+    
+    <?php
+if (!empty($weatherHistory)) {
+    foreach ($weatherHistory as $row) {
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($row['city']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['temperature']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['humidity']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['pressure']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['wind_speed']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['timestamp']) . "</td>";
+        echo "</tr>";
+    }
+} else {
+    echo '<tr><td colspan="6" style="text-align:center;">No search history found.</td></tr>';
+}
+?>
+
 
         </table>
     </div>

@@ -1,6 +1,7 @@
 <?php
 $error_message = $_GET['error'] ?? '';
 if (isset($_COOKIE['status']) && $_COOKIE['status'] === 'true') {
+    //user rmember koreche, so redirect to dashboard
     header("Location: ../Dashboard/dashboard.php");
     exit;
 }
@@ -20,9 +21,11 @@ if (isset($_COOKIE['status']) && $_COOKIE['status'] === 'true') {
             <form method="POST" action="../../controller/loginCheck.php">
                 <h2>Login</h2>
 
-                <?php if (!empty($error_message)): ?>
-                    <p style="color:red;"><?php echo $error_message; ?></p>
-                <?php endif; ?>
+                <?php
+                    if (!empty($error_message)) {
+                        echo "<p style='color:red;'>$error_message</p>";
+                    }
+                ?>
 
                 <label for="username">Username:</label>
                 <input type="text" name="username" id="username"><br><br>
@@ -30,10 +33,7 @@ if (isset($_COOKIE['status']) && $_COOKIE['status'] === 'true') {
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password"><br><br>
                 
-                <div class="remember-me">
-                <input type="checkbox" name="remember" id="remember">
-                <label for="remember">Remember Me</label>
-                </div>
+            <label class="remember-me"><input type="checkbox" /> Remember me</label>
 
                 <p><a href="../user_authentication/forgot_password.php">Forgot Password?</a></p>
 
