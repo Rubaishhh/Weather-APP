@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+session_start();
+require_once("../../model/db.php");
+if (!isset($_SESSION['username'])) {
+    header("Location: ../user_authentication/login.php");
+    exit();
+}
+
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

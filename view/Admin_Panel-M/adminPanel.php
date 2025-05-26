@@ -1,11 +1,12 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['username'])) {
-    header("Location: ../user_authentication/login.php");
-    exit();
-}
+if(!isset($_COOKIE['status']) || !isset($_SESSION['username'])) {
+     header("Location: ../user_authentication/login.php");
+    exit;
+  }
 
+    $username = $_SESSION['username'];
 require_once('../../model/db.php');
 
 $con = getConnection();
