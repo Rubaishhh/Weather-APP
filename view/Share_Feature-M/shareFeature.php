@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="../../asset/css/shareFeature.css">
 </head>
 <body>
-    <header>
-        <h1>Share Weather Snapshot</h1>
+   <header>
+        <h1>Share Weather </h1>
       </header>
     
       <div class="card">
-        <h2>Custom Message Editor</h2>
+        <h2> Message </h2>
         <textarea id="customMessage" rows="4" placeholder="Add a personal note..."></textarea>
         <button onclick="generateSnapshot()">Generate Snapshot</button>
         <div id="snapshot"></div>

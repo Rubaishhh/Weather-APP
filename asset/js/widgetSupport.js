@@ -8,20 +8,29 @@
       const apiKey = "29f608cad39dc1b3b89b3df31040bb39";
       const apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&appid=" + apiKey + "&units=metric";
 
-      fetch(apiUrl)
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(data) {
-          if (data.cod !== 200) {
-            alert("City not found.");
-            return;
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", apiUrl, true);
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            const data = JSON.parse(xhr.responseText);
+            if (data.cod !== 200) {
+              alert("City not found.");
+              return;
+            }
+            createWidget(data);
+          } else {
+            alert("Error fetching weather data.");
           }
-          createWidget(data);
-        })
-        .catch(function() {
-          alert("Error fetching weather data.");
-        });
+        }
+      };
+
+      xhr.onerror = function() {
+        alert("Network error while fetching weather data.");
+      };
+
+      xhr.send();
     }
 
     function createWidget(data) {

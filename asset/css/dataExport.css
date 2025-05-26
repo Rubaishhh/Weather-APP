@@ -1,33 +1,37 @@
 body {
-  font-family: Arial;
-  background: rgb(238, 238, 255);
-  padding: 20px;
-}
-.box {
-  background: rgb(255, 255, 255);
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
-}
-input, select, button {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  font-size: 16px;
-}
-button {
-  background: rgb(0, 123, 255);
-  color: rgb(255, 255, 255);
-  border: none;
-  cursor: pointer;
-}
-button:hover {
-  background: rgb(0, 86, 179);
-}
-.forecast-item {
-  padding: 10px;
-  background: rgb(241, 241, 241);
-  margin: 5px 0;
-  border-radius: 5px;
-}
+      font-family: Arial;
+      background: rgb(238, 238, 255);
+      padding: 20px;
+    }
+    .box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    button {
+      background: rgb(0, 123, 255);
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: rgb(0, 90, 200);
+    }
+    .result {
+      font-size: 18px;
+      line-height: 1.6;
+      background: #f1f1f1;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }

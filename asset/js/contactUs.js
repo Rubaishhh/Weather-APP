@@ -1,68 +1,57 @@
-function generateCaptcha() {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let captcha = '';
-    for (let i = 0; i < 6; i++) {
-        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return captcha;
-}
+  function containsDigit(str) {
+            for (let i = 0; i < str.length; i++) {
+                let ch = str.charAt(i);
+                if (ch >= '0' && ch <= '9') {
+                    return true;
+                }
+            }
+            return false;
+        }
 
-let currentCaptcha = generateCaptcha();
-document.getElementById('captchaText').innerHTML = currentCaptcha;
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            // Clear previous errors
+            document.getElementById('full_name_error').innerText = '';
+            document.getElementById('email_error').innerText = '';
+            document.getElementById('subject_error').innerText = '';
+            document.getElementById('message_error').innerText = '';
 
-// Refresh CAPTCHA functionality
-document.getElementById('refreshCaptcha').onclick = function() {
-    currentCaptcha = generateCaptcha();
-    document.getElementById('captchaText').innerHTML= currentCaptcha;
-    document.getElementById('captchaInput').value = ''; // Clear CAPTCHA input
-    document.getElementById('captcha-error').style.display = 'none'; // Hide error message
-};
+            let hasError = false;
 
-// Validate form
-document.getElementById('contactForm').onsubmit = function(event) {
-    event.preventDefault();
+            // Full Name validation
+            const fullName = document.getElementById('full_name').value.trim();
+            if (fullName === '') {
+                document.getElementById('full_name_error').innerText = 'Full name is required.';
+                hasError = true;
+            } else if (containsDigit(fullName)) {
+                document.getElementById('full_name_error').innerText = 'Full name cannot contain numbers.';
+                hasError = true;
+            }
 
-    let isValid = true;
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    const captchaInput = document.getElementById('captchaInput').value;
+            // Email validation (your requested simple logic)
+            const email = document.getElementById('email').value.trim();
+            if (email === '') {
+                document.getElementById('email_error').innerText = 'Email is required.';
+                hasError = true;
+            } else if (!email.includes("@") || !email.includes(".") || email.indexOf("@") > email.lastIndexOf(".")) {
+                document.getElementById('email_error').innerText = 'Please enter a valid email address.';
+                hasError = true;
+            }
 
-    // Validate Name
-    if (!name) {
-        document.getElementById('name-error').style.display = 'block';
-        isValid = false;
-    } else {
-        document.getElementById('name-error').style.display = 'none';
-    }
+            // Subject validation
+            const subject = document.getElementById('subject').value.trim();
+            if (subject === '') {
+                document.getElementById('subject_error').innerText = 'Subject is required.';
+                hasError = true;
+            }
 
-    // Validate Email
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!email || !emailPattern.test(email)) {
-        document.getElementById('email-error').style.display = 'block';
-        isValid = false;
-    } else {
-        document.getElementById('email-error').style.display = 'none';
-    }
+            // Message validation
+            const message = document.getElementById('message').value.trim();
+            if (message === '') {
+                document.getElementById('message_error').innerText = 'Message is required.';
+                hasError = true;
+            }
 
-    // Validate Message
-    if (!message) {
-        document.getElementById('message-error').style.display = 'block';
-        isValid = false;
-    } else {
-        document.getElementById('message-error').style.display = 'none';
-    }
-
-    // Validate CAPTCHA
-    if (captchaInput !== currentCaptcha) {
-        document.getElementById('captcha-error').style.display = 'block';
-        isValid = false;
-    } else {
-        document.getElementById('captcha-error').style.display = 'none';
-    }
-
-    // If all fields are valid, show success message
-    if (isValid) {
-        document.getElementById('successMessage').style.display = 'block';
-    }
-};
+            if (hasError) {
+                event.preventDefault(); // Stop form submission
+            }
+        });

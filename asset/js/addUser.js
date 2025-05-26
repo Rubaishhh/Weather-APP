@@ -1,4 +1,3 @@
-
 function validateForm() {
   let hasError = false;
 
@@ -14,25 +13,49 @@ function validateForm() {
   if (uname === '') {
     alert("Username is required.");
     hasError = true;
-  } else if (fname === '' || !/^[a-zA-Z\s]+$/.test(fname)) {
-    alert("Full name must contain only letters and spaces.");
-    hasError = true;
-  } else if (email === '' || !/^[\w\.-]+@[\w\.-]+\.\w{2,6}$/.test(email)) {
+  }
+
+  if (email === '' || email.indexOf('@') === -1 || email.indexOf('.') === -1) {
     alert("Invalid email format.");
     hasError = true;
-  } else if (phone === '' || !/^01[0-9]{9}$/.test(phone)) {
-    alert("Phone must be a valid Bangladeshi number (11 digits, starts with 01).");
+  }
+
+  // Phone validation without regex
+  if (phone === '') {
+    alert("Phone number is required.");
     hasError = true;
-  } else if (dob === '') {
+  } else if (phone.length !== 11) {
+    alert("Phone must be exactly 11 digits.");
+    hasError = true;
+  } else if (phone[0] !== '0' || phone[1] !== '1') {
+    alert("Phone must start with 01.");
+    hasError = true;
+  } else {
+    for (let i = 0; i < phone.length; i++) {
+      if (phone[i] < '0' || phone[i] > '9') {
+        alert("Phone must contain only numbers.");
+        hasError = true;
+        break;
+      }
+    }
+  }
+
+  if (dob === '') {
     alert("Date of birth is required.");
     hasError = true;
-  } else if (gender === '') {
+  }
+
+  if (gender === '') {
     alert("Gender is required.");
     hasError = true;
-  } else if (address === '') {
+  }
+
+  if (address === '') {
     alert("Address is required.");
     hasError = true;
-  } else if (country === '') {
+  }
+
+  if (country === '') {
     alert("Country is required.");
     hasError = true;
   }
