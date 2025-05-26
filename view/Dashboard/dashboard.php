@@ -8,8 +8,8 @@ if(!isset($_COOKIE['status']) || !isset($_SESSION['username'])) {
      header("Location: ../user_authentication/login.php");
     exit;
   }
-  $username = $_SESSION['username'];
-  $city = getLastSearchedCity($username); //etake pore send korbo dashboard e (ajax)
+
+    $username = $_SESSION['username'];
   //$uid = $_SESSION['uid'];
 ?>
 

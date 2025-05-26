@@ -232,6 +232,33 @@ document.getElementById("searchInput").addEventListener("keydown", function (eve
   }
 });
 
-let city = "Mirpur"; //pore ekhane oi last searched city ta thakbe
+function fetchLastSearchedCity() {
+  alert("Fetching last searched city");
+  let xhttp = new XMLHttpRequest();
 
-fetchWeather(city);
+  xhttp.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 200) {
+      
+        let response = JSON.parse(this.responseText); // parse JSON response
+        //alert("Response: " + this.responseText);
+
+        if (response.status === 'success') {
+          const city = response.city;
+          //alert("Last searched city: " + city);
+          fetchWeather(city);  // call your weather fetch function with city
+        } else {
+          alert("Error fetching city: " + response.message );
+        }
+       
+    }
+  };
+
+  xhttp.open("GET", "../../controller/AJAX/get_last_city.php", true);
+  xhttp.send();
+}
+
+
+window.onload = function () {
+  //alert("onload");
+  fetchLastSearchedCity();
+};

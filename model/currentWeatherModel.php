@@ -1,11 +1,12 @@
 <?php
+require_once('db.php');
 session_start();
 if (!isset($_SESSION['uid'])) {
     header("Location: ../view/user_authentication/login.php");
     exit();
 }
 $uid = $_SESSION['uid'];
-require_once('db.php');
+
 
 $con = getConnection();
 
@@ -28,7 +29,6 @@ $temp = $info->temp;
 $humidity = $info->humidity;
 $pressure = $info->pressure;
 $wind = $info->wind;
-        echo "<script>alert(before sql);</script>";
 
 $sql = "INSERT INTO weather_logs (uid ,city, temperature, humidity, pressure, wind_speed, timestamp) 
         VALUES ('$uid','$city', '$temp', '$humidity', '$pressure', '$wind', NOW())";
