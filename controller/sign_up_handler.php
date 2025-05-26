@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
-    if (!str_contains($email, '@') || !str_contains($email, '.')) {
+    if (strpos($email, '@') === false || strpos($email, '.') === false || strpos($email, '@') > strrpos($email, '.')) {
         header("Location: ../view/user_authentication/sign_up.php?error=invalid_email");
         exit;
     }

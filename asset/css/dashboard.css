@@ -19,7 +19,7 @@ body {
 .history-logo-button {
     position: absolute;
     top: 40px;
-    left: 440px;
+    left: 100px;
     z-index: 10; /*Ensure logo is above other elements*/
 }
 
@@ -233,3 +233,25 @@ body {
       height: 40px;
       overflow:hidden;
    } */
+/* munna buttons */
+.dashboard-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 55px;
+    margin-bottom: 30px;
+}
+
+.dash-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #187585;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dash-btn:hover {
+    background-color: #138d75;
+}

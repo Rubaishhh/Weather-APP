@@ -40,12 +40,12 @@ $weatherHistory = getUserWeatherHistory($uid);
 if (!empty($weatherHistory)) {
     foreach ($weatherHistory as $row) {
         echo "<tr>";
-        echo "<td>" . htmlspecialchars($row['city']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['temperature']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['humidity']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['pressure']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['wind_speed']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['timestamp']) . "</td>";
+        echo "<td>" . $row['city'] . "</td>";
+        echo "<td>" . $row['temperature'] . "</td>";
+        echo "<td>" . $row['humidity'] . "</td>";
+        echo "<td>" . $row['pressure'] . "</td>";
+        echo "<td>" . $row['wind_speed'] . "</td>";
+        echo "<td>" . $row['timestamp'] . "</td>";
         echo "</tr>";
     }
 } else {

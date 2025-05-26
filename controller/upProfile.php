@@ -16,10 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<script>alert('Invalid email format.'); window.location.href='../view/profile_management/profile_management.php';</script>";
-        exit;
-    }
+if (strpos($email, '@') === false || strpos($email, '.') === false || strpos($email, '@') > strrpos($email, '.')) {
+    echo "<script>alert('Invalid email format.'); window.location.href='../view/profile_management/profile_management.php';</script>";
+    exit;
+}
 
     if (strlen($phone) !== 11) {
         echo "<script>alert('Phone number must be 11 digits.'); window.location.href='../view/profile_management/profile_management.php';</script>";
@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_FILES['profile_picture'])) {
         $fileTmp = $_FILES['profile_picture']['tmp_name'];
         $fileName = $_FILES['profile_picture']['name'];
+        
         $targetPath = "../asset/images and icons/upIMG/" . $fileName;
         $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
         if (in_array($_FILES['profile_picture']['type'], $allowedTypes)) {

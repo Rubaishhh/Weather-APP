@@ -49,6 +49,14 @@ if(!isset($_COOKIE['status']) || !isset($_SESSION['username'])) {
               </div>
 
         </div>
+        <div class="dashboard-buttons">
+            <button class="dash-btn" onclick="window.location.href='contact_us.php'">Contact Us</button>
+            <button class="dash-btn" onclick="window.location.href='message_box.php'">Message Box</button>
+            <button class="dash-btn" onclick="downloadWeatherData()">Download</button>
+            <button class="dash-btn" onclick="shareDashboard()">Share</button>
+            <button class="dash-btn" onclick="window.location.href='widget_gallery.php'">Widget Gallery</button>
+        </div>
+
         <div class="main-weather">
           <div class="temp">
             <h1 id="temperature">--°C</h1>

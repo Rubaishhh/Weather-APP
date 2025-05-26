@@ -7,11 +7,34 @@ $user = getUserInfo($username);
 print_r($user);
 
 $imgLocation = "../../asset/images and icons/upIMG/" . $user['img_name'];
+print_r($imgLocation);
 
 if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
     header("Location: ../user_authentication/login.php");
     exit;
   }
+
+  if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+
+    if ($error === 'all_fields_required') {
+        echo "<p style='color: red; font-weight: bold;'>All fields are required.</p>";
+    } else if ($error === 'invalid_phone') {
+        echo "<p style='color: red; font-weight: bold;'>Phone number must be 11 digits and numeric.</p>";
+    } else if ($error === 'invalid_email') {
+        echo "<p style='color: red; font-weight: bold;'>Invalid email format.</p>";
+    } else if ($error === 'password_mismatch') {
+        echo "<p style='color: red; font-weight: bold;'>Passwords do not match.</p>";
+    } else if ($error === 'image_upload_failed') {
+        echo "<p style='color: red; font-weight: bold;'>Image upload failed. Try again.</p>";
+    } else if ($error === 'profile_image_required') {
+        echo "<p style='color: red; font-weight: bold;'>Profile image is required.</p>";
+    } else if ($error === 'username_exists') {
+        echo "<p style='color: red; font-weight: bold;'>Username already exists</p>";
+    } else if ($error === 'signup_failed') {
+        echo "<p style='color: red; font-weight: bold;'>Signup failed!!</p>";
+    }
+}
 ?>
 
 
