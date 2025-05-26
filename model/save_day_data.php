@@ -7,7 +7,7 @@ if (isset($_POST['selectedData'])) {
 
     if ($data) {
         $_SESSION['selected_day'] = $data;
-        echo "Data saved";
+        //echo "Data saved";
     } else {
         http_response_code(400);
         echo "Invalid JSON data";

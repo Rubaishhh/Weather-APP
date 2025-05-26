@@ -257,8 +257,6 @@ function fetchLastSearchedCity() {
   xhttp.send();
 }
 
-
 window.onload = function () {
-  //alert("onload");
   fetchLastSearchedCity();
 };

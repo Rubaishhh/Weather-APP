@@ -4,10 +4,10 @@ session_start();
 require_once("../../model/user_infomodel.php");
 $username = $_SESSION['username'];
 $user = getUserInfo($username);
-print_r($user);
+//print_r($user);
 
 $imgLocation = "../../asset/images and icons/upIMG/" . $user['img_name'];
-print_r($imgLocation);
+//print_r($imgLocation);
 
 if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
     header("Location: ../user_authentication/login.php");

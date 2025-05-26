@@ -33,7 +33,7 @@ if (isset($_COOKIE['status']) && $_COOKIE['status'] === 'true') {
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password"><br><br>
                 
-            <label class="remember-me"><input type="checkbox" /> Remember me</label>
+            <!-- <label class="remember-me"><input type="checkbox" /> Remember me</label> -->
 
                 <p><a href="../user_authentication/forgot_password.php">Forgot Password?</a></p>
 

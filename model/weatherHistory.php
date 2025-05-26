@@ -24,7 +24,6 @@ function getLastSearchedCity($username) {
     $conn = getConnection();
 
     // Escape the username to prevent SQL injection (still very important!)
-    $username = mysqli_real_escape_string($conn, $username);
 
     $query = "SELECT city FROM userweatherview WHERE uname = '$username' ORDER BY timestamp DESC LIMIT 1";
 
