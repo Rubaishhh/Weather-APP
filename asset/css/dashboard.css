@@ -16,6 +16,15 @@ body {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
+ .notification-frame {
+      position: absolute;
+      top: 30px;
+      right: 300px;
+      border: none;
+        width: 250px;
+  height: 250px;
+      overflow: hidden;
+    }
 .history-logo-button {
     position: absolute;
     top: 40px;

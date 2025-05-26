@@ -49,12 +49,20 @@ if(!isset($_COOKIE['status']) || !isset($_SESSION['username'])) {
               </div>
 
         </div>
+        
+        <iframe 
+    src="../Notification-M/notification.html" 
+    class="notification-frame" 
+    scrolling="no" 
+    title="Notification Bell"
+  ></iframe>
+
         <div class="dashboard-buttons">
-            <button class="dash-btn" onclick="window.location.href='contact_us.php'">Contact Us</button>
-            <button class="dash-btn" onclick="window.location.href='message_box.php'">Message Box</button>
-            <button class="dash-btn" onclick="downloadWeatherData()">Download</button>
-            <button class="dash-btn" onclick="shareDashboard()">Share</button>
-            <button class="dash-btn" onclick="window.location.href='widget_gallery.php'">Widget Gallery</button>
+            <button class="dash-btn" onclick="window.location.href='../contactUs-M/contact.php'">Contact Us</button>
+            <button class="dash-btn" onclick="window.location.href='../Historical_Data-M/historicalData.php'">Historical Data</button>
+            <button class="dash-btn" onclick="window.location.href='../Data_Export-M/dataExport.php'">Download</button>
+            <button class="dash-btn" onclick="window.location.href='../Share_Feature-M/shareFeature.php'">Share</button>
+            <button class="dash-btn" onclick="window.location.href='../Widget_Support-M/widgetSupport.php'">Widget Gallery</button>
         </div>
 
         <div class="main-weather">

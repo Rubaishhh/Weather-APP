@@ -9,7 +9,6 @@
         }
 
         document.getElementById('contactForm').addEventListener('submit', function(event) {
-            // Clear previous errors
             document.getElementById('full_name_error').innerText = '';
             document.getElementById('email_error').innerText = '';
             document.getElementById('subject_error').innerText = '';
@@ -27,7 +26,7 @@
                 hasError = true;
             }
 
-            // Email validation (your requested simple logic)
+           
             const email = document.getElementById('email').value.trim();
             if (email === '') {
                 document.getElementById('email_error').innerText = 'Email is required.';
@@ -52,6 +51,6 @@
             }
 
             if (hasError) {
-                event.preventDefault(); // Stop form submission
+                event.preventDefault(); 
             }
         });
