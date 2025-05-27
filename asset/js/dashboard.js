@@ -20,7 +20,6 @@ function fetchWeather(cityName) {
   const xhttp = new XMLHttpRequest();
   xhttp.open("GET", url, true); //jehetu kichu pathachi na just getting the data, so get and true for asynch
   xhttp.send();
-// This assigns a callback function that will run whenever the readyState of the request changes.
   xhttp.onreadystatechange = function () {
     if(xhttp.readyState === 4 && xhttp.status === 200){
       const data = JSON.parse(xhttp.responseText); //obj banaitese
@@ -99,7 +98,6 @@ function displayForecast(data) {
         }
     });
 
-    // Attach click handler to send selectedData to PHP
     document.querySelectorAll('.clickable-card').forEach(el => {
         el.addEventListener('click', function () {
             const index = this.getAttribute('data-index');
@@ -115,7 +113,7 @@ function displayForecast(data) {
                 }
             };
 
-            xhr.send("selectedData=" + encodeURIComponent(JSON.stringify(selectedData)));
+            xhr.send("selectedData=" + JSON.stringify(selectedData));
         });
     });
 }

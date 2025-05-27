@@ -7,9 +7,9 @@ if (!isset($_COOKIE['status']) || !isset($_SESSION['username']) || !isset($_SESS
     exit;
 }
 
-
 $uid = $_SESSION['uid'];
-$weatherHistory = getUserWeatherHistory($uid);
+$searchCity = isset($_GET['city']) ? trim($_GET['city']) : '';
+$weatherHistory = getUserWeatherHistory($uid, $searchCity);
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +24,10 @@ $weatherHistory = getUserWeatherHistory($uid);
     <div class="container">
    <!-- Search History Table -->
         <h2>Search History</h2>
+        <form method="GET" style="margin-bottom: 20px;">
+            <input type="text" name="city" placeholder="Search by city" value="<?php echo isset($_GET['city']) ? $_GET['city'] : ''; ?>">
+            <button type="submit">Search</button>
+        </form>
         <table class="history-table">
             <thead>
                 <tr>

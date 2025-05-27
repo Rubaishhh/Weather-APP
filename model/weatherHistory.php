@@ -1,12 +1,17 @@
 <?php
 require_once('db.php');
-
-function getUserWeatherHistory($uid) {
+function getUserWeatherHistory($uid, $cityFilter = '') {
     $con = getConnection();
     $sql = "SELECT city, temperature, humidity, pressure, wind_speed, timestamp 
             FROM userweatherview 
-            WHERE uid = '$uid' 
-            ORDER BY timestamp DESC";
+            WHERE uid = '$uid'";
+
+//dhaka jodi search kori, BD dhaka thakle otao dekhabe(Like)
+     if (!empty($cityFilter)) {
+        $sql .= " AND city LIKE '%$cityFilter%'";
+    }
+
+    $sql .= " ORDER BY timestamp DESC";
     
     $result = mysqli_query($con, $sql);
     $history = [];

@@ -97,7 +97,6 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
       <div class="form_btn">
         <button type="submit" onclick=" return saveProfile()">Save</button> 
         <!-- return saveProfile() ensures JS validation runs first; if validation fails, submission is cancelled. -->
-        <button type="reset">Reset</button>
       </div>
     </form>
   </div>

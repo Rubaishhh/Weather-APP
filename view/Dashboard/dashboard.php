@@ -102,11 +102,12 @@ if(!isset($_COOKIE['status']) || !isset($_SESSION['username'])) {
         <section id="forecast">
             <h2>5 Day Forecast</h2>
             <div class="forecast">
-                <div class="forecast-card clickable" id="day1"></div>
-                <div class="forecast-card clickable" id="day2"></div>
-                <div class="forecast-card clickable" id="day3"></div>
-                <div class="forecast-card clickable" id="day4"></div>
-                <div class="forecast-card clickable" id="day5"></div>
+                <div class="forecast-card clickable-card" id="day1" data-index="0"></div>
+                <div class="forecast-card clickable-card" id="day2" data-index="1"></div>
+                <div class="forecast-card clickable-card" id="day3" data-index="2"></div>
+                <div class="forecast-card clickable-card" id="day4" data-index="3"></div>
+                <div class="forecast-card clickable-card" id="day5" data-index="4"></div>
+
             </div>
         </section>
 </div>
