@@ -1,5 +1,5 @@
 <?php
-    $host = "localhost:3307";
+    $host = "localhost:3306";
     $dbname = "skysence";
     $dbuser = "root";
     $dbpass = "";
