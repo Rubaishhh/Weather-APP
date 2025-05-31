@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once("../model/user_infomodel.php");
+$username = $_SESSION['username']; // Make sure this is set
+$user = getUserInfo($username);    // Now $user is available
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -26,7 +28,15 @@ if (strpos($email, '@') === false || strpos($email, '.') === false || strpos($em
         exit;
     }
 
-    if (isset($_FILES['profile_picture'])) {
+
+
+
+    if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] != 4) {
+
+    echo "<pre>";
+    print_r($_FILES['profile_picture']);
+    echo "</pre>";
+    exit;
         $fileTmp = $_FILES['profile_picture']['tmp_name'];
         $fileName = $_FILES['profile_picture']['name'];
         
@@ -46,7 +56,10 @@ if (strpos($email, '@') === false || strpos($email, '.') === false || strpos($em
                      exit;
             }
         
-    }
+    } else {
+    // No new file uploaded, keep old image
+    $img_name = $user['img_name'];
+}
 
     $username = $_SESSION['username'];
     $status = updateUserInfo($username, $fullname, $email, $phone, $gender, $address, $country, $img_name);

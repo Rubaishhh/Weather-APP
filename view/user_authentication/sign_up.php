@@ -95,7 +95,6 @@ if(isset($_GET['error']) && $_GET['error'] === 'username_exists'){
 
 <p>Already have an account? <a href="../user_authentication/login.php">Login here</a></p>
 <div class="buttons">
-    <button type="button" id="cancel">Cancel</button><br><br>
     <button type="reset" id="reset">Reset</button>
     <button type="submit" id="submit">Sign up</button>
 </div>

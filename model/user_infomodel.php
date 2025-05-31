@@ -11,10 +11,10 @@ function login_user($username, $password){
     $con = getConnection();
 
     $sql = "select * from user_info where uname = '$username' and password = '$password'";
-    $result = mysqli_query($con, $sql); //returns obj
+    $result = mysqli_query($con, $sql);
 
     if($result && mysqli_num_rows($result)===1){
-        $user = mysqli_fetch_assoc($result); //returns associative array
+        $user = mysqli_fetch_assoc($result);
         return $user;
     }
 

@@ -11,19 +11,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = trim($_POST['password'] ?? '');
     $remember = isset($_POST['remember']);
 
-    // First check if admin
+    //~~~~~~~~~~~~~~Munnas Part~~~~~~~~~~~~~
     $admin = login_admin($username, $password);
 
     if ($admin) {
         $_SESSION['admin_username'] = $admin['username'];
-        $cookie_duration = $remember ? (time() + (86400 * 30)) : (time() + 3600);
+        $cookie_duration = $remember ? (time() + (86400 * 30)) : (time() + 600);
         setcookie("status", "true", $cookie_duration, "/");
         setcookie("username", $username, $cookie_duration, "/");
         header("Location: ../view/Admin_Panel-M/adminPanel.php");
         exit;
     }
-
-    // Else try normal user login
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     $user = login_user($username, $password);
 
     if ($user) {
@@ -35,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: ../view/Dashboard/dashboard.php");
     } else {
         $error_message = "Invalid username or password!";
-        header("Location: ../view/user_authentication/login.php?error=" . urlencode($error_message));
+        header("Location: ../view/user_authentication/login.php?error=" . $error_message);
     }
 
     exit;

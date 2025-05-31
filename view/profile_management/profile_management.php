@@ -73,9 +73,9 @@ if (!isset($_COOKIE['status']) || $_COOKIE['status'] !== 'true') {
       
     <div class="gender_grp">
         <label>Gender</label>
-        <label><input type="radio" name="gender" value="Male" <?= ($user['gender'] == 'male') ? 'checked' : '' ?>> Male</label>
-        <label><input type="radio" name="gender" value="Female" <?= ($user['gender'] == 'female') ? 'checked' : '' ?>> Female</label>
-        <label><input type="radio" name="gender" value="Other" <?= ($user['gender'] == 'other') ? 'checked' : '' ?>> Other</label>
+        <label><input type="radio" name="gender" value="male" <?= ($user['gender'] == 'male') ? 'checked' : '' ?>> Male</label>
+        <label><input type="radio" name="gender" value="female" <?= ($user['gender'] == 'female') ? 'checked' : '' ?>> Female</label>
+        <label><input type="radio" name="gender" value="other" <?= ($user['gender'] == 'other') ? 'checked' : '' ?>> Other</label>
       </div>
       
         <label for="address">Address</label>
