@@ -1,3 +1,27 @@
+document.getElementById('username').addEventListener('blur', function() {
+    const username = this.value.trim();
+    if (username === "") 
+        return; 
+
+    const xhr = new XMLHttpRequest();
+    const params = "check_username=" + encodeURIComponent(username);
+
+    xhr.open("POST", "../../controller/sign_up_handler.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send(params);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            if (xhr.responseText === "exists") {
+                alert("Username already taken. Please choose another.");
+                document.getElementById('username').value = "";
+                document.getElementById('username').focus();
+            }
+        }
+    };
+});
+
+
 function validate_signup() {
     let username = document.getElementById("username").value.trim();
     let fullname = document.getElementById("fullname").value.trim();

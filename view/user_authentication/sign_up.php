@@ -14,12 +14,13 @@ if(isset($_GET['error']) && $_GET['error'] === 'username_exists'){
     <link rel="stylesheet" href="../../asset/css/signup.css">
 </head>
 <body>
-    <form id="signupForm" action="../../controller/sign_up_handler.php" method="POST" onsubmit="return validateForm()" enctype="multipart/form-data" >
+    <form id="signupForm" action="../../controller/sign_up_handler.php" method="POST" onsubmit="return validate_signup()" enctype="multipart/form-data" >
     <img src="../../asset/images and icons/Skysence_logo.png" alt="SKYSENCE">
 
     <h2><u>Sign up</u></h2>
     <label for="username"> User name :</label>
     <input type="text" id="username" name="username" required><br><br>
+    <p id="username-status" style="color: red;"></p>
 
     <label for="fullname"> Full name:</label>
     <input type="text" id="fullname" name="fullname" required><br><br>

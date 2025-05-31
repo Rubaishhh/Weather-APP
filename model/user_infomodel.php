@@ -11,7 +11,7 @@ function login_user($username, $password){
     $con = getConnection();
 
     $sql = "select * from user_info where uname = '$username' and password = '$password'";
-    $result = mysqli_query($con, $sql);
+    $result = mysqli_query($con, $sql); 
 
     if($result && mysqli_num_rows($result)===1){
         $user = mysqli_fetch_assoc($result);

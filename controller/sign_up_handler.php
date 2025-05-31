@@ -4,6 +4,23 @@ require_once('../model/db.php');
 require_once('../model/user_infomodel.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    
+if (isset($_POST['check_username'])) {
+        $uname = trim($_POST['check_username']);
+        $con = getConnection();
+        $result = mysqli_query($con, "SELECT * FROM user_info WHERE uname = '$uname'");
+
+        if (mysqli_num_rows($result) > 0) {
+            echo "exists";
+        } else {
+            echo "available";
+        }
+        exit;  
+    }
+
+
+
+
     $uname = trim($_POST['username'] ?? '');
     $fname = trim($_POST['fullname'] ?? '');
     $email = trim($_POST['email'] ?? '');
